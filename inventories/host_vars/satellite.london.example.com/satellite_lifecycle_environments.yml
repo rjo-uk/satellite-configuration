@@ -1,0 +1,8 @@
+---
+satellite_lifecycle_environments:
+  - name: "Dev-Test-New"
+    prior: "Library"
+  - name: "Stage-New"
+    prior: "Dev-Test-New"
+  - name: "Prod-DR-New"
+    prior: "Stage-New"

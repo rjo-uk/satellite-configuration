@@ -1,0 +1,7 @@
+satellite_organizations: 
+- name: Default Organization
+  label: Default_Organization
+  state: present
+- name: Example Organization
+  label: Example_Organization
+  state: present

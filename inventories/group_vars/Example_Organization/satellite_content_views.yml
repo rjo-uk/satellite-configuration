@@ -1,0 +1,23 @@
+---
+satellite_content_views:
+  - name: RHEL8-with-products
+    repositories:
+      - name: MariaDB 11.2 RHEL 8
+        product: MariaDB
+      - name: MariaDB 11.4 RHEL 8
+        product: MariaDB
+      - name: fedora-bootc
+        product: fedora-bootc
+      - name: MongoDB 7.0
+        product: MongoDB
+      - name: Red Hat Ansible Engine 2.8 for RHEL 8 x86_64 RPMs
+        product: Red Hat Ansible Engine
+      - name: Red Hat Enterprise Linux 8 for x86_64 - AppStream RPMs 8
+        product: Red Hat Enterprise Linux for x86_64
+      - name: Red Hat Enterprise Linux 8 for x86_64 - BaseOS RPMs 8
+        product: Red Hat Enterprise Linux for x86_64
+      - name: Red Hat Satellite Capsule 6.12 for RHEL 8 x86_64 RPMs
+        product: Red Hat Satellite Capsule
+      - name: rhel9/rhel-bootc
+        product: rhel-bootc
+...

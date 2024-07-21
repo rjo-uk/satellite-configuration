@@ -1,0 +1,11 @@
+---
+satellite_activation_keys:
+  - name: "RHEL8-Dev-Test-New"
+    lifecycle_environment: "Dev-Test-New"
+    content_view: "RHEL8-with-products"
+  - name: "RHEL8-Stage-New"
+    lifecycle_environment: "Stage-New"
+    content_view: "RHEL8-with-products"
+  - name: "RHEL8-Prod-DR-New"
+    lifecycle_environment: "Prod-DR-New"
+    content_view: "RHEL8-with-products"

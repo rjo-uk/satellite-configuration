@@ -1,0 +1,20 @@
+---
+Example_Organization:
+  hosts:
+    satellite.london.example.com:
+      satellite_server_url: https://satellite.london.example.com
+      satellite_username: admin
+      satellite_password: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          64653563643633393937366439653764316430646532376163623737346135363165316239346531
+    satellite.nyc.example.com:
+      satellite_server_url: https://satellite.nyc.example.com
+      satellite_validate_certs: false
+      satellite_username: admin
+      satellite_password: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          64653563643633393937366439653764316430646532376163623737346135363165316239346531
+  vars:
+    ansible_connection: local
+    satellite_organization: "Example Organization"
+...
