@@ -35,5 +35,5 @@
         - { name: redhat.satellite.compute_resources, var: satellite_compute_resources, tags: compute_resourcee }
         - { name: redhat.satellite.compute_profiles, var: satellite_compute_profiles, tags: compute_profiles }
         - { name: redhat.satellite.content_view_version_cleanup, var: satellite_content_view_version_cleanup_keep, tags: content_view_version_cleanup }
-        - { name: redhat.satellite.convert2rhel, var: redhat.satellite.content_rhel, tags: convert2rhel }
+        - { name: redhat.satellite.convert2rhel, var: satellite_convert2rhel_manage_subscription, tags: convert2rhel }
 ...
