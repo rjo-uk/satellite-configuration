@@ -18,6 +18,7 @@
       loop:
         - { name: redhat.satellite.organizations, var: satellite_organizations, tags: organizations }
         - { name: redhat.satellite.locations, var: satellite_locations, tags: locations }
+        - { name: redhat.satellite.manifest, var: satellite_manifest_path, tags: manifest }
         - { name: redhat.satellite.content_credentials, var: satellite_content_credentials, tags: content_credentials }
         - { name: redhat.satellite.repositories, var: satellite_products, tags: repositories }
         - { name: redhat.satellite.sync_plans, var: satellite_sync_plans, tags: sync_plans }
@@ -33,7 +34,6 @@
         - { name: redhat.satellite.auth_sources_ldap, var: satellite_auth_sources_ldap, tags: auth_sources_ldap }
         - { name: redhat.satellite.compute_resources, var: satellite_compute_resources, tags: compute_resourcee }
         - { name: redhat.satellite.compute_profiles, var: satellite_compute_profiles, tags: compute_profiles }
-        - { name: redhat.satellite.manifest, var: satellite_manifest_path, tags: manifest }
         - { name: redhat.satellite.content_view_version_cleanup, var: satellite_content_view_version_cleanup_keep, tags: content_view_version_cleanup }
         - { name: redhat.satellite.convert2rhel, var: redhat.satellite.content_rhel, tags: convert2rhel }
 ...
