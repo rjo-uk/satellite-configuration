@@ -1,0 +1,22 @@
+---
+# satellite_compute_profiles:
+#   - name: "1-Small"
+#     compute_attributes:
+#       - compute_resource: "VMware"
+#         vm_attrs:
+#           cluster: "cluster01"
+#           path: /Datacenters/ha-datacenter/vm/
+#           memoryHotAddEnabled: true
+#           cpuHotAddEnabled: true
+#           cpus: 1
+#           corespersocket: 1
+#           memory_mb: 2048
+#           volumes_attributes:
+#             0:
+#               datastore: "datastore1"
+#               size_gb: 15
+#           interfaces_attributes:
+#             0:
+#               type: "VirtualVmxnet3"
+#               network: "VM Network"
+...
