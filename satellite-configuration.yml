@@ -18,13 +18,13 @@
       loop:
         - { name: redhat.satellite.organizations, var: satellite_organizations, tags: organizations }
         - { name: redhat.satellite.locations, var: satellite_locations, tags: locations }
+        - { name: redhat.satellite.settings, var: satellite_settings, tags: settings }
         - { name: redhat.satellite.manifest, var: satellite_manifest_path, tags: manifest }
         - { name: redhat.satellite.content_credentials, var: satellite_content_credentials, tags: content_credentials }
         - { name: redhat.satellite.repositories, var: satellite_products, tags: repositories }
         - { name: redhat.satellite.sync_plans, var: satellite_sync_plans, tags: sync_plans }
         - { name: redhat.satellite.lifecycle_environments, var: satellite_lifecycle_environments, tags: lifecycle_environments }
         - { name: redhat.satellite.content_views, var: satellite_content_views, tags: content_views }
-        - { name: redhat.satellite.settings, var: satellite_settings, tags: settings }
         - { name: redhat.satellite.domains, var: satellite_domains, tags: domains }
         - { name: redhat.satellite.activation_keys, var: satellite_activation_keys, tags: activation_keys }
         - { name: redhat.satellite.hostgroups, var: satellite_hostgroups, tags: hostgroups }
