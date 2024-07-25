@@ -1,3 +1,4 @@
+---
 satellite_products:
 #  - name: Red Hat Enterprise Linux Server
 #    repository_sets:
@@ -47,3 +48,4 @@ satellite_products:
         url: https://mirror.mariadb.org/yum/11.4/rhel8-amd64/
         gpg_key: RPM-GPG-KEY-MariaDB
         download_policy: on_demand
+...

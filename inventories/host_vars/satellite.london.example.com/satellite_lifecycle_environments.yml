@@ -6,3 +6,4 @@ satellite_lifecycle_environments:
     prior: "Dev-Test-New"
   - name: "Prod-DR-New"
     prior: "Stage-New"
+...

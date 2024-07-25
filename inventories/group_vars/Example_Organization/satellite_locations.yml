@@ -1,14 +1,15 @@
+---
 satellite_locations:
   - name: EMEA
     organisations:
       - Default Organization
       - Example Organization
   - name: UK
-    organisations: 
+    organisations:
       - Default Organization
       - Example Organization
     parent: EMEA
     parameters:
       - name: system_location
         value: UK
-
+...

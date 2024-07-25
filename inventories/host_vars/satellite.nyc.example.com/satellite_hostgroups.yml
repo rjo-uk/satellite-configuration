@@ -1,3 +1,4 @@
+---
 satellite_hostgroups:
   - name: "x86_64 Architecture Hostgroup"
     architecture: "x86_64"
@@ -22,3 +23,4 @@ satellite_hostgroups:
     organization: "{{ satellite_organization }}"
   - name: "ApplicationServer Hostgroup"
     organization: "{{ satellite_organization }}"
+...
