@@ -28,7 +28,7 @@
         - { name: redhat.satellite.domains, var: satellite_domains, tags: domains }
         - { name: redhat.satellite.activation_keys, var: satellite_activation_keys, tags: activation_keys }
         - { name: redhat.satellite.hostgroups, var: satellite_hostgroups, tags: hostgroups }
-        - { name: redhat.satellite.subnets, var: redhat.satellite.subnet, tags: subnets }
+        - { name: redhat.satellite.subnets, var: satellite_subnets, tags: subnets }
         - { name: redhat.satellite.provisioning_templates, var: satellite_provisioning_templates, tags: provisioning_templates }
         - { name: redhat.satellite.operatingsystems, var: satellite_operatingsystems, tags: operatingsystems }
         - { name: redhat.satellite.auth_sources_ldap, var: satellite_auth_sources_ldap, tags: auth_sources_ldap }
