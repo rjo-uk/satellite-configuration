@@ -20,4 +20,37 @@ satellite_content_views:
         product: Red Hat Satellite Capsule
       - name: rhel9/rhel-bootc
         product: rhel-bootc
+  # - name: cv-os-rhel
+  # - name: cv-os-rhel-6
+  # - name: cv-os-rhel-7
+  # - name: cv-os-rhel-8
+  # - name: cv-os-rhel-9
+  - name: cv-os-rhel-monthly
+    description: RHEL Content with errata until last day of the previous month
+    repositories:
+      - name: Red Hat Enterprise Linux 8 for x86_64 - BaseOS RPMs 8
+        product: Red Hat Enterprise Linux for x86_64
+      - name: Red Hat Enterprise Linux 8 for x86_64 - AppStream RPMs 8
+        product: Red Hat Enterprise Linux for x86_64
+      - name: Red Hat Satellite Client 6 for RHEL 8 x86_64 RPMs
+        product: Red Hat Enterprise Linux for x86_64
+      - name: Red Hat Enterprise Linux 9 for x86_64 - BaseOS RPMs 9
+        product: Red Hat Enterprise Linux for x86_64
+      - name: Red Hat Enterprise Linux 9 for x86_64 - AppStream RPMs 9
+        product: Red Hat Enterprise Linux for x86_64
+      - name: Red Hat Satellite Client 6 for RHEL 9 x86_64 RPMs
+        product: Red Hat Enterprise Linux for x86_64
+    filters:
+      - name: "filt-cv-os-rhel-monthly-rpm-errata-date"
+        description: Exclude errata released after last day of previous month
+        filter_state: "present"
+        filter_type: "erratum"
+        rule_name: "rule-rpm-errata-date"
+        inclusion: true
+        end_date: "{{ lookup('ansible.builtin.pipe', 'date -d \"$(date +%Y-%m-01) -1 day\" +%Y-%m-%d') }}"
+        repositories: []
+  # - name: cv-os-rhel-quarterly
+  # - name: cv-app-epel
+  # - name: cv-app-mongodb
+  # - name: ccv-biz-
 ...
