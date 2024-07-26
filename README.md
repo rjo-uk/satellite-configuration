@@ -22,12 +22,17 @@ auth_url=https://sso.redhat.com/auth/realms/redhat-external/protocol/openid-conn
 token=CHANGEME
 ```
 
-2. Replace `CHANGEME` with a valid token which can be obtained at the following URL: https://console.redhat.com/ansible/automation-hub/token.  See also see [access article](https://access.redhat.com/articles/3626371)
+2. Replace `CHANGEME` with a valid token which can be obtained at the following URL: https://console.redhat.com/ansible/automation-hub/token.  See also see [Getting started with Red Hat APIs](https://access.redhat.com/articles/3626371)
 
+3. Install the collection as the current user:
+
+`ansible-galaxy collection install redhat.satellite`
+
+By default, this will install into `~/.ansible/collections/ansible_collections/redhat/satellite/`
 
 ## Inventory structure
 
-The inventory is currently setup for my lab environment which consists of two servers, roughly mirroring a 'production' environment at `satellite.london.example.com` and a 'development' environment at `nyc.london.example.com`.  Using the standard [Ansible precedence](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_variables.html#understanding-variable-precedence) rules, configuration can be performed for common configuration via [inventories/group_vars/Example_Organization](inventories/group_vars/Example_Organization/) and individual configuration via [inventories/host_vars](inventories/host_vars/).  For example, my development server could match production but only mirror a subset of the repositories and host a subset of the content views.  The development environment overrides would be set via  [inventories/host_vars](inventories/host_vars/) in the appropriate inventory directory.
+The inventory is currently setup for my lab environment which consists of two servers, roughly mirroring a 'production' environment at `satellite.london.example.com` and a 'development' environment at `nyc.london.example.com`.  Using the standard [Ansible precedence](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_variables.html#understanding-variable-precedence) rules, configuration can be performed for common configuration via [inventories/group_vars/Example_Organization](inventories/group_vars/Example_Organization/) and individual configuration via [inventories/host_vars](inventories/host_vars/).  For example, my development server could match production but mirror a subset of the repositories and host a subset of the content views.  The development environment overrides would be set via  [inventories/host_vars](inventories/host_vars/) in the appropriate inventory directory.
 
 ```
 .
@@ -73,7 +78,7 @@ The inventory is currently setup for my lab environment which consists of two se
 
 ## Satellite login credentials
 
-Satellite login credentials can be placed in [inventories/inventory.yml](inventories/inventory.yml).  These can be unenrcrypted (not recommended) or encrypyted with ansible-vault.  The quickest way to generate an encypted record is via the `ansible-vault encrypt_string` command.
+Satellite login credentials can be placed in [inventories/inventory.yml](inventories/inventory.yml).  These can be unencrypted (not recommended) or encrypyted with ansible-vault.  The quickest way to generate an encrypted record is via the `ansible-vault encrypt_string` command.
 
 For example:
 ```
@@ -90,7 +95,7 @@ Encryption successful
           30323163393836356132616431653930323031636566353936653238396166353763
 ```
 
-To eliminate the need to provide the Vault password each run, a vault password file can be defined in [ansible.cfg](ansible.cfg) and secured locally via filesystem permissions.  This repository contains a sample entry in (ansible.cfg)[ansible.cfg] for achieving this.
+To eliminate the need to provide the Vault password each run, a vault password file can be defined in [ansible.cfg](ansible.cfg) and secured locally via filesystem permissions.  This repository contains a sample entry in [ansible.cfg](ansible.cfg) for achieving this.
 
 
 ## Running the playbook against a single server
