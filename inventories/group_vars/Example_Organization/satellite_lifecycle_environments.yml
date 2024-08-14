@@ -1,9 +1,9 @@
 ---
 satellite_lifecycle_environments:
-  - name: "Dev-Test-New"
+  - name: "dev-test"
     prior: "Library"
-  - name: "Stage-New"
-    prior: "Dev-Test-New"
-  - name: "Prod-DR-New"
-    prior: "Stage-New"
+  - name: "stage"
+    prior: "dev-test"
+  - name: "prod-dr"
+    prior: "stage"
 ...
