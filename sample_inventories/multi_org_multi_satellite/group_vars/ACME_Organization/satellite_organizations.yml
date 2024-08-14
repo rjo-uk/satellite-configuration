@@ -1,0 +1,9 @@
+---
+satellite_organizations:
+  - name: Default Organization
+    label: Default_Organization
+    state: present
+  - name: ACME Organization
+    label: ACME_Organization
+    state: present
+...

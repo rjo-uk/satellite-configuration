@@ -1,0 +1,13 @@
+---
+# satellite_operatingsystems:
+#  - name: "RedHat"
+#    major: "8"
+#    minor: "5"
+#    os_family: "Redhat"
+#    password_hash: "SHA256"
+#    default_templates:
+#      - template_kind: "cloud-init"
+#        provisioning_template: "CloudInit default"
+#      - template_kind: "user_data"
+#        provisioning_template: "UserData open-vm-tools"
+...
