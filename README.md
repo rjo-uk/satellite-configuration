@@ -78,7 +78,7 @@ The inventory is currently setup for my lab environment which consists of two se
 
 ## Satellite login credentials
 
-Satellite login credentials can be placed in [inventories/inventory.yml](inventories/inventory.yml).  These can be unencrypted (not recommended) or encrypyted with ansible-vault.  The quickest way to generate an encrypted record is via the `ansible-vault encrypt_string` command.
+Satellite login credentials can be placed in [inventories/inventory.yml](inventories/inventory.yml).  These can be unencrypted (not recommended) or encrypted with ansible-vault.  The quickest way to generate an encrypted record is via the `ansible-vault encrypt_string` command.
 
 For example:
 ```
@@ -101,3 +101,113 @@ To eliminate the need to provide the Vault password each run, a vault password f
 ## Running the playbook against a single server
 
 `ansible-playbook --limit satellite.london.example.com -i inventories/ satellite-configuration.yml`
+
+## Naming Conventions
+
+Although not required, a standard naming convention for Satellite resources provides support teams with a consistent experience and allows automation and scripting tools to use pattern matching and regular expressions to audit and manipulate the environment.  The PDF guide [10 Steps to Build an SOE: How Red Hat Satellite 6 Supports Setting up a Standard Operating Environment](https://access.redhat.com/articles/1585273) suggests a possible naming convention.  This repository uses some naming conventions from that guide along with some opinionated modifications.
+
+### Overview
+
+Avoid special characters such as `@ ! " ' , ? # : ;` in object names, as this allows objects to be manipulated easily in CSV and YAML formats.  If there is an established naming convention (eg for a product) consider replicating it.  Although Satellite objects can often be renamed, you may find that items such as `labels` cannot be changed after they are created.  As an example, if a Content View is initially created as `RHEL 9` (the name) with label `RHEL_9` and the name is subsequently updated in the UI, you might end up with a name `cv-rhel-9` but with label `RHEL_9`.  This can cause confusion.  It is advisable to avoid this if possible by configuring your resources in the yaml files and performing some analysis before implementing the configuration.
+
+### Product Name
+
+| Naming Convention | Examples |
+|       :---:       |  :---:   |
+| < vendor or upstream project > - < product name or purpose > [ - < RHEL release > ] | MariaDB |
+| | EPEL |
+| | HPE |
+
+Note that it is now possible to have repositories with different RHEL releases and different GPG keys under a single Product.  This means, for example, that it's no longer required to have an EPEL-8 product and an EPEL-9 product.  As such, the 'RHEL release' may not be required.
+
+### GPG Keys
+
+| Naming Convention | Examples |
+|       :---:       |  :---:   |
+| RPM-GPG-KEY- <vendor or product>  [ - < version or release > ] | RPM-GPG-KEY-EPEL-8 |
+| | RPM-GPG-KEY-EPEL-9 |
+| | RPM-GPG-KEY-MariaDB |
+| | RPM-GPG-KEY-SPP |
+
+This above naming convention is used (with uppercase characters) to mirror filenames typically placed in `/etc/pki/rpm-gpg`.
+
+### Repository Label
+| Naming Convention | Examples |
+|       :---:       |  :---:   |
+< vendor > [ - < product >  ] [ - < product version > ] - for -< os version > - < architecture > - < repo type > | mariadb-11-2-for-rhel-8-x86_64-rpms |
+| | mariadb-11-4-for-rhel-8-x86_64-rpms |
+| | epel-8-for-rhel-8-x86_64-rpms |
+| | epel-9-for-rhel-9-x86_64-rpms |
+| | spp-gen9-for-rhel-8-x86_64-rpms |
+| | spp-gen10-for-rhel-8-x86_64-rpms |
+| | spp-gen11-for-rhel-8-x86_64-rpms |
+| | spp-gen9-for-rhel-9-x86_64-rpms |
+| | spp-gen10-for-rhel-9-x86_64-rpms |
+| | spp-gen11-for-rhel-9-x86_64-rpms |
+
+The naming standard here attempts to mirror the RHEL repo naming standards as of RHEL 8 and RHEL 9.
+
+### Lifecycle Environment
+
+| Naming Convention | Examples |
+|       :---:       |  :---:   |
+| dev-test/stage/prod-dr | dev-test |
+| | stage |
+| | prod-dr |
+
+These names should match the environments used in your organization.
+
+### Content-View
+
+| Naming Convention | Examples |
+|       :---:       |  :---:   |
+| cv - < os/app > - < profile name > [ - < version or release > ] | cv-os-rhel-6 |
+| | cv-os-rhel-7 |
+| | cv-os-rhel-8 |
+| | cv-os-rhel-9 |
+| | cv-os-rhel-monthly |
+| | cv-app-mariadb |
+| | cv-app-spp |
+
+The naming convention described depends on whether Content Views will be consumed by clients directly, or whether Composite Content Views are used.  The use of `os` and `app` allows for operating system views to be deployed at a different cadence to application ones.  A common approach may to be have a monthly or quarterly `os` patching content view.  Organizations may have different opinions as to whether applications should be updated at the same time.
+
+### Composite-Content-View
+
+| Naming Convention | Examples |
+|       :---:       |  :---:   |
+| ccv - < biz/infra > - < role name > [ - < version or release > ] | ccv-biz-soe-monthly |
+| | ccv-biz-database |
+| | ccv-infra-containerhost |
+
+###  Activation-Key
+
+| Naming Convention | Examples |
+|       :---:       |  :---:   |
+| act - < lifecycle environment > - < biz/infra/os > - < role name > | act-dev-test-biz-soe |
+| | act-stage-biz-soe |
+| | act-prod-dr-biz-soe |
+| | act-dev-test-biz-database |
+| | act-dev-test-biz-database |
+| | act-prod-dr-biz-database |
+| | act-stage-infra-containerhost |
+
+### Host-Group
+
+
+### Provisioning Template
+
+| Naming Convention | Examples |
+|       :---:       |  :---:   |
+| < org > < provisioning template name > | Example Organization Kickstart Default |
+
+### Partition Tables
+
+| Naming Convention | Examples |
+|       :---:       |  :---:   |
+| ptable - < org > - < ptable name > | ptable-example-organization-gitserver |
+
+### Resources
+
+| Naming Convention | Examples |
+|       :---:       |  :---:   |
+| < org > - < compute resource name > - < location > | example-organisation-rhelosp-london |
