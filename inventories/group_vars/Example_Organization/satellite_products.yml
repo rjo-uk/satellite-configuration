@@ -76,35 +76,35 @@ satellite_products:
     description: HPE Software Delivery Repository
     repositories:
       - name: SPP for ProLiant Gen 9 for RHEL 8 - x86_64
-        label: spp-gen9-for-rhel-8-x86_64-rpms
+        label: hpe-spp-gen9-for-rhel-8-x86_64-rpms
         content_type: yum
         url: https://downloads.linux.hpe.com/SDR/repo/spp-gen9/redhat/8/x86_64/current/
         gpg_key: RPM-GPG-KEY-SPP
         download_policy: on_demand
         os_versions: rhel-8
       - name: SPP for ProLiant Gen 10 for RHEL 8 - x86_64
-        label: spp-gen10-for-rhel-8-x86_64-rpms
+        label: hpe-spp-gen10-for-rhel-8-x86_64-rpms
         content_type: yum
         url: https://downloads.linux.hpe.com/SDR/repo/spp-gen10/redhat/8/x86_64/current/
         gpg_key: RPM-GPG-KEY-SPP
         download_policy: on_demand
         os_versions: rhel-8
       - name: SPP for ProLiant Gen 11 for RHEL 8 - x86_64
-        label: spp-gen11-for-rhel-8-x86_64-rpms
+        label: hpe-spp-gen11-for-rhel-8-x86_64-rpms
         content_type: yum
         url: https://downloads.linux.hpe.com/SDR/repo/spp-gen11/redhat/8/x86_64/current/
         gpg_key: RPM-GPG-KEY-SPP
         download_policy: on_demand
         os_versions: rhel-8
       - name: SPP for ProLiant Gen 10 for RHEL 9 - x86_64
-        label: spp-gen10-for-rhel-9-x86_64-rpms
+        label: hpe-spp-gen10-for-rhel-9-x86_64-rpms
         content_type: yum
         url: https://downloads.linux.hpe.com/SDR/repo/spp-gen10/redhat/9/x86_64/current/
         gpg_key: RPM-GPG-KEY-SPP
         download_policy: on_demand
         os_versions: rhel-9
       - name: SPP for ProLiant Gen 11 for RHEL 9 - x86_64
-        label: spp-gen11-for-rhel-9-x86_64-rpms
+        label: hpe-spp-gen11-for-rhel-9-x86_64-rpms
         content_type: yum
         url: https://downloads.linux.hpe.com/SDR/repo/spp-gen11/redhat/9/x86_64/current/
         gpg_key: RPM-GPG-KEY-SPP
