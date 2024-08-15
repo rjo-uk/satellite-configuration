@@ -1,3 +1,4 @@
 .vault_pass.txt
 .vscode
 inventories/inventory.yml
+sample_inventories/multi_org_multi_satellite/inventory.yml
