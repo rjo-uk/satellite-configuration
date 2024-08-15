@@ -1,0 +1,18 @@
+---
+# satellite_compute_resources:
+#   - name: "VMware"
+#     provider: "vmware"
+#     provider_params:
+#       url: "vcenter.example.com"
+#       user: "administrator@vsphere.local"
+#       password: "changeme"
+#       datacenter: "ha-datacenter"
+#       images:
+#         - name: "RHEL-8.4"
+#           operatingsystem: "RedHat-8.4"
+#           architecture: "x86_64"
+#           user_data: true
+#           image_username: "root"
+#           image_password: "changeme"
+#           uuid: "Templates/rhel-8.4-template"
+...
