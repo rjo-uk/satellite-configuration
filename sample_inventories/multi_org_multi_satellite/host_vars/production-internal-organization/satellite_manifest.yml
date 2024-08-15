@@ -1,0 +1,8 @@
+---
+## production-internal-organization.satellite.example.com
+# satellite_manifest_path: "~/production-internal-organization.satellite.example.com.manifest.zip"
+# satellite_manifest_download: true
+# satellite_rhsm_username: "{{ satellite_rhsm_username }}"
+# satellite_rhsm_password: "{{ satellite_rhsm_password }}"
+# satellite_manifest_uuid: "CHANGEME"
+...
