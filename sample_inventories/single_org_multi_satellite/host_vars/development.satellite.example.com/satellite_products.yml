@@ -1,0 +1,32 @@
+---
+# satellite_products:
+#   - name: Red Hat Enterprise Linux Server
+#     repository_sets:
+#       - name: Red Hat Enterprise Linux 7 Server (RPMs)
+#         basearch: x86_64
+#         releasever: 7Server
+#       - name: Red Hat Enterprise Linux 7 Server - Extras (RPMs)
+#         basearch: x86_64
+#       - name: Red Hat Enterprise Linux 7 Server - Optional (RPMs)
+#         basearch: x86_64
+#         releasever: 7Server
+#       - name: Red Hat Enterprise Linux 7 Server - RH Common (RPMs)
+#         basearch: x86_64
+#         releasever: 7Server
+#   - name: Red Hat Enterprise Linux for x86_64
+#     repository_sets:
+#       - name: Red Hat Enterprise Linux 8 for x86_64 - BaseOS (RPMs)
+#         releasever: 8
+#       - name: Red Hat Enterprise Linux 8 for x86_64 - AppStream (RPMs)
+#         releasever: 8
+#       - name: Red Hat Enterprise Linux 9 for x86_64 - BaseOS (RPMs)
+#         releasever: 9
+#       - name: Red Hat Enterprise Linux 9 for x86_64 - AppStream (RPMs)
+#         releasever: 9
+#       - name: Red Hat Satellite Client 6 for RHEL 8 x86_64 (RPMs)
+#       - name: Red Hat Satellite Client 6 for RHEL 9 x86_64 (RPMs)
+#   - name: Red Hat Satellite Capsule
+#     repository_sets:
+#       - name: Red Hat Satellite Capsule 6.11 (for RHEL 7 Server) (RPMs)
+#         basearch: x86_64
+...

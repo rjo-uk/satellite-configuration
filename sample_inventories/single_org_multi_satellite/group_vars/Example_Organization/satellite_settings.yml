@@ -1,0 +1,271 @@
+---
+# satellite_settings:
+#
+# List of settings can be found from running:
+# hammer --csv --csv-separator ': ' --no-headers settings list --fields 'Name,Value'
+#
+#  - name: allow_auto_inventory_upload
+#    value: true
+#  - name: allow_auto_insights_sync
+#    value: true
+# allow_auto_insights_mismatch_delete: false
+# obfuscate_inventory_hostnames: false
+# obfuscate_inventory_ips: false
+# exclude_installed_packages: false
+# include_parameter_tags: false
+# rhc_instance_id: ******
+# administrator: root@london.example.com
+# foreman_url: "https://satellite.london.example.com"
+# entries_per_page: 20
+# db_pending_seed: false
+# proxy_request_timeout: 60
+# login_text: "Version $VERSION"
+# http_proxy: ""
+# http_proxy_except_list: []
+# lab_features: false
+# new_hosts_page: false
+# display_fqdn_for_hosts: true
+# outofsync_interval: 30
+# instance_id: ******
+# default_locale: ""
+# default_timezone: ""
+# instance_title: ""
+# audits_period: ""
+# host_details_ui: true
+# oauth_active: true
+# oauth_consumer_key: *****
+# oauth_consumer_secret: *****
+# oauth_map_users: false
+# failed_login_attempts_limit: 30
+# restrict_registered_smart_proxies: true
+# trusted_hosts: []
+# ssl_certificate: /etc/foreman/client_cert.pem
+# ssl_ca_file: /etc/foreman/proxy_ca.pem
+# ssl_priv_key: /etc/foreman/client_key.pem
+# ssl_client_dn_env: HTTP_SSL_CLIENT_S_DN
+# ssl_client_verify_env: HTTP_SSL_CLIENT_VERIFY
+# ssl_client_cert_env: HTTP_SSL_CLIENT_CERT
+# server_ca_file: ""
+# websockets_ssl_key: /etc/pki/katello/private/katello-apache.key
+# websockets_ssl_cert: /etc/pki/katello/certs/katello-apache.crt
+# websockets_encrypt: true
+# login_delegation_logout_url: ""
+# authorize_login_delegation_auth_source_user_autocreate: External
+# authorize_login_delegation: false
+# authorize_login_delegation_api: false
+# idle_timeout: 60
+# password_hash: bcrypt
+# bcrypt_cost: 10
+# pbkdf2_cost: 50000
+# bmc_credentials_accessible: false
+# oidc_jwks_url: ""
+# oidc_audience: []
+# oidc_issuer: ""
+# oidc_algorithm: ""
+# email_reply_address: satellite-noreply@london.example.com
+# email_subject_prefix: [satellite]
+# send_welcome_email: false
+# delivery_method: sendmail
+# smtp_enable_starttls_auto: true
+# smtp_openssl_verify_mode: ""
+# smtp_address: ""
+# smtp_port: 25
+# smtp_domain: ""
+# smtp_user_name: ""
+# smtp_password: *****
+# smtp_authentication: ""
+# sendmail_arguments: -i
+# sendmail_location: /usr/sbin/sendmail
+# rss_enable: true
+# rss_url: "https://www.redhat.com/en/rss/blog/channel/red-hat-satellite"
+# host_owner: ""
+# root_pass: *****
+# unattended_url: "http://satellite.london.example.com"
+# safemode_render: true
+# access_unattended_without_build: false
+# query_local_nameservers: false
+# token_duration: 360
+# ssh_timeout: 120
+# libvirt_default_console_address: 0.0.0.0
+# update_ip_from_built_request: false
+# use_shortname_for_vms: false
+# dns_timeout: "[5, 10, 15, 20]"
+# clean_up_failed_deployment: true
+# name_generator_type: Random-based
+# default_pxe_item_global: ""
+# default_pxe_item_local: ""
+# intermediate_ipxe_script: "iPXE intermediate script"
+# destroy_vm_on_host_delete: false
+# maximum_structured_facts: 100
+# default_global_registration_item: "Global Registration"
+# default_host_init_config_template: "Linux host_init_config default"
+# ct_location: /usr/bin/ct
+# ct_arguments: "[""--pretty"", ""--files-dir"", ""/usr/share/foreman/config/ct""]"
+# fcct_location: /usr/bin/fcct
+# fcct_arguments: "[""--pretty"", ""--files-dir"", ""/usr/share/foreman/config/ct""]"
+# global_PXEGrub2: "PXEGrub2 global default"
+# global_PXELinux: "PXELinux global default"
+# global_PXEGrub: "PXEGrub global default"
+# global_iPXE: "iPXE global default"
+# local_boot_PXEGrub2: "PXEGrub2 default local boot"
+# local_boot_PXELinux: "PXELinux default local boot"
+# local_boot_PXEGrub: "PXEGrub default local boot"
+# local_boot_iPXE: "iPXE default local boot"
+# manage_puppetca: true
+# use_uuid_for_certificates: false
+# create_new_host_when_facts_are_uploaded: true
+# location_fact: foreman_location
+# organization_fact: foreman_organization
+# default_location: "Default Location"
+# default_organization: "Default Organization"
+# update_hostgroup_from_facts: true
+# ignore_facts_for_operatingsystem: false
+# ignore_facts_for_domain: false
+# update_subnets_from_facts: none
+# ignore_puppet_facts_for_provisioning: false
+# ignored_interface_identifiers: "[""lo"", ""en*v*"", ""usb*"", ""vnet*"", ""macvtap*"", "";vdsmdummy;"",
+# ""veth*"", ""docker*"", ""tap*"", ""qbr*"", ""qvb*"", ""qvo*"", ""qr-*"", ""qg-*"", ""vlinuxbr*
+# "", ""vovsbr*"", ""br-int"", ""vif*"", ""cali*""]"
+# excluded_facts: "[""lo"", ""en*v*"", ""usb*"", ""vnet*"", ""macvtap*"", "";vdsmdummy;"", ""veth*"", ""docker*"",
+#  ""tap*"", ""qbr*"", ""qvb*"", ""qvo*"", ""qr-*"", ""qg-*"", ""vlinuxbr*"", ""vovsbr*""
+# , ""br-int"", ""vif*"", ""cali*"", ""load_averages::*"", ""memory::swap::available*"", ""memory::swap::capacity"",
+# ""memory::swap::used*"", ""memory::system::available*"", ""memory::system::capacity"
+# ", ""memory::system::used*"", ""memoryfree"", ""memoryfree_mb"", ""swapfree"", ""swapfree_mb"", ""uptime_hours"", ""uptime_days""]"
+# create_new_host_when_report_is_uploaded: true
+# matchers_inheritance: true
+# Default_parameters_Lookup_Path: "[""fqdn"", ""hostgroup"", ""os"", ""domain""]"
+# interpolate_erb_in_parameters: true
+# always_show_configuration_status: false
+# foreman_tasks_sync_task_timeout: 120
+# dynflow_enable_console: true
+# dynflow_console_require_auth: true
+# foreman_tasks_proxy_action_retry_count: 4
+# foreman_tasks_proxy_action_retry_interval: 15
+# foreman_tasks_proxy_batch_trigger: true
+# foreman_tasks_proxy_batch_size: 100
+# foreman_tasks_troubleshooting_url: "https://access.redhat.com/solutions/satellite6-tasks#%{label}"
+# foreman_tasks_polling_multiplier: 1
+# remote_execution_fallback_proxy: false
+# remote_execution_global_proxy: true
+# remote_execution_ssh_user: root
+# remote_execution_effective_user: root
+# remote_execution_effective_user_method: sudo
+# remote_execution_effective_user_password: *****
+# remote_execution_sync_templates: true
+# remote_execution_ssh_port: 22
+# remote_execution_connect_by_ip: false
+# remote_execution_connect_by_ip_prefer_ipv6: false
+# remote_execution_ssh_password: *****
+# remote_execution_ssh_key_passphrase: *****
+# remote_execution_workers_pool_size: 5
+# remote_execution_cleanup_working_dirs: true
+# remote_execution_cockpit_url: ""
+# remote_execution_form_job_template: "Run Command - Script Default"
+# remote_execution_job_invocation_report_template: "Job - Invocation Report"
+# remote_execution_time_to_pickup: 86400
+# ansible_ssh_private_key_file: ""
+# ansible_connection: ssh
+# ansible_winrm_server_cert_validation: validate
+# ansible_verbosity: 0
+# ansible_post_provision_timeout: 360
+# ansible_interval: 30
+# ansible_out_of_sync_disabled: false
+# ansible_inventory_template: "Ansible - Ansible Inventory"
+# ansible_roles_to_ignore: []
+# foreman_ansible_proxy_batch_size: ""
+# bootdisk_ipxe_dir: /usr/share/ipxe
+# bootdisk_isolinux_dir: /usr/share/syslinux
+# bootdisk_syslinux_dir: /usr/share/syslinux
+# bootdisk_grub2_dir: /var/lib/tftpboot/grub2
+# bootdisk_host_template: "Boot disk iPXE - host"
+# bootdisk_generic_host_template: "Boot disk iPXE - generic host"
+# bootdisk_generic_efi_host_template: "Boot disk Grub2 EFI - generic host"
+# bootdisk_mkiso_command: genisoimage
+# bootdisk_cache_media: true
+# bootdisk_allowed_types: "[""subnet"", ""full_host""]"
+# content_default_http_proxy: ""
+# cdn_ssl_version: ""
+# katello_default_provision: "Kickstart default"
+# katello_default_finish: "Kickstart default finish"
+# katello_default_user_data: "Kickstart default user data"
+# katello_default_PXELinux: "Kickstart default PXELinux"
+# katello_default_PXEGrub: "Kickstart default PXEGrub"
+# katello_default_PXEGrub2: "Kickstart default PXEGrub2"
+# katello_default_iPXE: "Kickstart default iPXE"
+# katello_default_ptable: "Kickstart default"
+# katello_default_kexec: "Discovery Red Hat kexec"
+# katello_default_atomic_provision: "Atomic Kickstart default"
+# manifest_refresh_timeout: 1200
+# subscription_connection_enabled: true
+# errata_status_installable: false
+# restrict_composite_view: false
+# check_services_before_actions: true
+# foreman_proxy_content_batch_size: 100
+# foreman_proxy_content_auto_sync: true
+# download_rate_limit: 0
+# default_download_policy: immediate
+# default_redhat_download_policy: on_demand
+# default_proxy_download_policy: on_demand
+# pulp_export_destination: /var/lib/pulp/katello-export
+# validate_host_lce_content_source_coherence: true
+# pulpcore_export_destination: /var/lib/pulp/exports
+# default_export_format: importable
+# sync_total_timeout: 3600
+# sync_connect_timeout_v2: 60
+# sync_sock_connect_timeout: 60
+# sync_sock_read_timeout: 3600
+# unregister_delete_host: false
+# register_hostname_fact: ""
+# register_hostname_fact_strict_match: false
+# default_location_subscribed_hosts: "Default Location"
+# expire_soon_days: 120
+# host_dmi_uuid_duplicates: []
+# host_profile_assume: true
+# host_profile_assume_build_can_change: false
+# host_re_register_build_only: false
+# host_tasks_workers_pool_size: 5
+# applicability_batch_size: 50
+# bulk_load_size: 2000
+# upload_profiles_without_dynflow: true
+# orphan_protection_time: 1440
+# remote_execution_prefer_registered_through_proxy: false
+# delete_repo_across_cv: true
+# distribute_archived_cvv: true
+# show_unsupported_templates: true
+# discovery_location: ""
+# discovery_organization: ""
+# discovery_fact: discovery_bootif
+# discovery_auto_bond: false
+# discovery_clean_facts: false
+# discovery_hostname: "[""discovery_bootif""]"
+# discovery_auto: false
+# discovery_reboot: true
+# discovery_prefix: mac
+# discovery_fact_column: []
+# discovery_facts_highlights: ""
+# discovery_facts_storage: ""
+# discovery_facts_software: ""
+# discovery_facts_hardware: ""
+# discovery_facts_network: ""
+# discovery_facts_ipmi: ""
+# discovery_lock: false
+# discovery_pxelinux_lock_template: pxelinux_discovery
+# discovery_pxegrub_lock_template: pxegrub_discovery
+# discovery_pxegrub2_lock_template: pxegrub2_discovery
+# discovery_always_rebuild_dns: true
+# discovery_error_on_existing: false
+# discovery_naming: Fact
+# discovery_prefer_ipv6: false
+# template_sync_verbose: false
+# template_sync_associate: new
+# template_sync_prefix: ""
+# template_sync_dirname: /
+# template_sync_filter: ""
+# template_sync_repo: "https://github.com/theforeman/community-templates.git"
+# template_sync_negate: false
+# template_sync_branch: ""
+# template_sync_metadata_export_mode: refresh
+# template_sync_force: false
+# template_sync_lock: keep
+# template_sync_commit_msg: "Templates export made by a Satellite user"
+...

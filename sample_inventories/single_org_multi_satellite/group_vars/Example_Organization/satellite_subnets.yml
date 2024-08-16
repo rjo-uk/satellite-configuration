@@ -1,0 +1,24 @@
+---
+# satellite_subnets:
+#   - name: "My subnet"
+#     description: "My description"
+#     network: "192.168.0.0"
+#     mask: "255.255.255.192"
+#     gateway: "192.168.0.1"
+#     from_ip: "192.168.0.2"
+#     to_ip: "192.168.0.42"
+#     boot_mode: "Static"
+#     dhcp_proxy: "smart-proxy1.foo.example.com"
+#     tftp_proxy: "smart-proxy1.foo.example.com"
+#     dns_proxy: "smart-proxy2.foo.example.com"
+#     template_proxy: "smart-proxy2.foo.example.com"
+#     vlanid: 452
+#     mtu: 9000
+#     domains:
+#     - "foo.example.com"
+#     - "bar.example.com"
+#     organizations:
+#     - "Example Org"
+#     locations:
+#     - "Uppsala"
+...

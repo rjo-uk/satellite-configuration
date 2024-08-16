@@ -1,0 +1,21 @@
+---
+# satellite_activation_keys:
+#   - name: "act-dev-test-biz-soe"
+#     lifecycle_environment: "dev-test"
+#     content_view: "ccv-biz-soe-monthly"
+#   - name: "act-stage-biz-soe"
+#     lifecycle_environment: "stage"
+#     content_view: "ccv-biz-soe-monthly"
+#   - name: "act-prod-dr-biz-soe"
+#     lifecycle_environment: "prod-dr"
+#     content_view: "ccv-biz-soe-monthly"
+#   - name: "act-dev-test-biz-database"
+#     lifecycle_environment: "dev-test"
+#     content_view: "ccv-biz-database"
+#   - name: "act-stage-biz-database"
+#     lifecycle_environment: "stage"
+#     content_view: "ccv-biz-database"
+#   - name: "act-prod-dr-biz-database"
+#     lifecycle_environment: "prod-dr"
+#     content_view: "ccv-biz-database"
+...
