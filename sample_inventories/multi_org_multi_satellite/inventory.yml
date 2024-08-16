@@ -24,10 +24,10 @@ ACME_Organization:
     registry_redhat_io_password: !vault |
           $ANSIBLE_VAULT;1.1;AES256
           64653563643633393937366439653764316430646532376163623737346135363165316239346531
-    satellite_rhsm_username: !vault |
+    rhsm_username: !vault |
           $ANSIBLE_VAULT;1.1;AES256
           64653563643633393937366439653764316430646532376163623737346135363165316239346531
-    satellite_rhsm_password: !vault |
+    rhsm_password: !vault |
           $ANSIBLE_VAULT;1.1;AES256
           64653563643633393937366439653764316430646532376163623737346135363165316239346531
 Internal_Organization:
@@ -55,10 +55,10 @@ Internal_Organization:
     registry_redhat_io_password: !vault |
           $ANSIBLE_VAULT;1.1;AES256
           64653563643633393937366439653764316430646532376163623737346135363165316239346531
-    satellite_rhsm_username: !vault |
+    rhsm_username: !vault |
           $ANSIBLE_VAULT;1.1;AES256
           64653563643633393937366439653764316430646532376163623737346135363165316239346531
-    satellite_rhsm_password: !vault |
+    rhsm_password: !vault |
           $ANSIBLE_VAULT;1.1;AES256
           64653563643633393937366439653764316430646532376163623737346135363165316239346531
 External_Organization:
@@ -86,10 +86,10 @@ External_Organization:
     registry_redhat_io_password: !vault |
           $ANSIBLE_VAULT;1.1;AES256
           64653563643633393937366439653764316430646532376163623737346135363165316239346531
-    satellite_rhsm_username: !vault |
+    rhsm_username: !vault |
           $ANSIBLE_VAULT;1.1;AES256
           64653563643633393937366439653764316430646532376163623737346135363165316239346531
-    satellite_rhsm_password: !vault |
+    rhsm_password: !vault |
           $ANSIBLE_VAULT;1.1;AES256
           64653563643633393937366439653764316430646532376163623737346135363165316239346531
 ...
