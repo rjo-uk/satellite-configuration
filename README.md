@@ -47,7 +47,38 @@ The documentation below covers the following scenarios:
 
 ### Single Organization running on a single Satellite server
 
-TODO
+A sample inventory for `Example Organization` running on a single Satellite server can be found at [sample_inventories/single_org_single_satellite](sample_inventories/single_org_single_satellite).
+
+```
+├── group_vars
+│   └── Example_Organization
+│       ├── satellite_activation_keys.yml
+│       ├── satellite_auth_sources_ldap.yml
+│       ├── satellite_compute_profiles.yml
+│       ├── satellite_compute_resources.yml
+│       ├── satellite_content_credentials.yml
+│       ├── satellite_content_view_version_cleanup_keep.yml
+│       ├── satellite_content_views.yml
+│       ├── satellite_convert_to_rhel.yml
+│       ├── satellite_domains.yml
+│       ├── satellite_hostgroups.yml
+│       ├── satellite_lifecycle_environments.yml
+│       ├── satellite_locations.yml
+│       ├── satellite_manifest.yml
+│       ├── satellite_operatingsystems.yml
+│       ├── satellite_organizations.yml
+│       ├── satellite_products.yml
+│       ├── satellite_provisioning_templates.yml
+│       ├── satellite_settings.yml
+│       ├── satellite_subnets.yml
+│       └── satellite_sync_plans.yml
+└── inventory.yml
+```
+
+The configuration consists of an inventory file at [sample_inventories/single_org_single_satellite/inventory.yml](sample_inventories/single_org_single_satellite/inventory.yml) and configuration defined as group_vars in [sample_inventories/single_org_single_satellite/group_vars/Example_Organization](sample_inventories/single_org_single_satellite/group_vars/Example_Organization).  The advantage of storing configuration in this way is that if a second satellite server is added later (eg for testing) then the configuration can be updated to fit the layout defined in the next section.
+
+
+
 
 ### Single Organization running on two Satellite servers
 
@@ -100,7 +131,29 @@ The inventory is currently setup for my lab environment which consists of two se
 If you wish you configure multiple Satellite servers, a valid option would be to replicate the single server inventory described above for each Satellite/Organization as needed.  These is nothing wrong with this approach.  However, if many of the configuration items are consistent between servers (for example, you want to have exactly the same products across all Satellite servers) then you can define the configuration in a single inventory, and define per-Satellite and per-Organization differences in the appropriate location.
 
 
-The [sample_inventories/multi_org_multi_satellite](sample_inventories/multi_org_multi_satellite) inventory structure describes the configuration of the following:
+  hosts:
+    production.satellite.example.com:
+      satellite_server_url: https://production.satellite.example.com
+      satellite_validate_certs: false
+      satellite_username: admin
+      satellite_password: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          64653563643633393937366439653764316430646532376163623737346135363165316239346531
+  vars:
+    ansible_connection: local
+    satellite_organization: "Example Organization"
+    registry_redhat_io_username: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          64653563643633393937366439653764316430646532376163623737346135363165316239346531
+    registry_redhat_io_password: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          64653563643633393937366439653764316430646532376163623737346135363165316239346531
+    satellite_rhsm_username: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          64653563643633393937366439653764316430646532376163623737346135363165316239346531
+    satellite_rhsm_password: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          64653563643633393937366439653764316430646532376163623737346135363165316239346531
 
 | Satellite Server | Organization | Inventory Name | Inventory Group / Satellite Organization Label |
 |  :---:   |     :---:       |  :---:   | :---:       |
