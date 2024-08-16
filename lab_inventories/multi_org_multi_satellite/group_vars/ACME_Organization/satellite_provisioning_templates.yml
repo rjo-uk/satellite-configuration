@@ -1,0 +1,8 @@
+---
+# satellite_provisioning_templates:
+#   - name: CloudInit vSphere
+#     template: "{{ lookup('file', 'cloudinit_vsphere.erb') }}"
+#     operatingsystems:
+#       - RedHat 7.9
+#       - RedHat 8.5
+...

@@ -1,0 +1,9 @@
+---
+# satellite_domains:
+#   - name: "example.org"
+#     description: "Example Domain"
+#     locations:
+#       - "Uppsala"
+#     organizations:
+#       - "ACME"
+...

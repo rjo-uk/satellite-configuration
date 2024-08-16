@@ -1,0 +1,136 @@
+---
+satellite_content_views:
+  - name: RHEL8-with-products
+    description: RHEL 8 MariaDB Ansible Engine Bootc
+    repositories:
+      - name: MariaDB 11.2 RHEL 8 - x86_64
+        product: MariaDB
+      - name: MariaDB 11.4 RHEL 8 - x86_64
+        product: MariaDB
+      - name: Red Hat Enterprise Linux 8 for x86_64 - AppStream RPMs 8
+        product: Red Hat Enterprise Linux for x86_64
+      - name: Red Hat Enterprise Linux 8 for x86_64 - BaseOS RPMs 8
+        product: Red Hat Enterprise Linux for x86_64
+      - name: rhel9/rhel-bootc
+        product: rhel-bootc
+  - name: cv-os-rhel-6
+    description: RHEL 6 repositories from Red Hat
+    repositories:
+      - name: Red Hat Enterprise Linux 6 Server - Retired Extended Life Cycle Support RPMs x86_64
+        product: Red Hat Enterprise Linux Server
+      - name: Red Hat Enterprise Linux 6 Server - Retired Extended Life Cycle Support - Optional RPMs x86_64
+        product: Red Hat Enterprise Linux Server
+      - name: Red Hat Enterprise Linux 6 Server - Extras RPMs x86_64
+        product: Red Hat Enterprise Linux Server
+      - name: Red Hat Enterprise Linux 6 Server - Supplementary RPMs x86_64 6Server
+        product: Red Hat Enterprise Linux Server
+      - name: Red Hat Software Collections RPMs for Red Hat Enterprise Linux 6 Server x86_64 6Server
+        product: Red Hat Software Collections (for RHEL Server)
+  - name: cv-os-rhel-7
+    description: RHEL 7 repositories from Red Hat
+    repositories:
+      - name: Red Hat Enterprise Linux 7 Server RPMs x86_64 7Server
+        product: Red Hat Enterprise Linux Server
+      - name: Red Hat Enterprise Linux 7 Server - Extras RPMs x86_64
+        product: Red Hat Enterprise Linux Server
+      - name: Red Hat Enterprise Linux 7 Server - Optional RPMs x86_64 7Server
+        product: Red Hat Enterprise Linux Server
+      - name: Red Hat Enterprise Linux 7 Server - Supplementary RPMs x86_64 7Server
+        product: Red Hat Enterprise Linux Server
+      - name: Red Hat Satellite Client 6 for RHEL 7 Server RPMs x86_64
+        product: Red Hat Enterprise Linux Server
+      - name: Red Hat Software Collections RPMs for Red Hat Enterprise Linux 7 Server x86_64 7Server
+        product: Red Hat Software Collections (for RHEL Server)
+  - name: cv-os-rhel-8
+    description: RHEL 8 repositories from Red Hat
+    repositories:
+      - name: Red Hat Enterprise Linux 8 for x86_64 - BaseOS RPMs 8
+        product: Red Hat Enterprise Linux for x86_64
+      - name: Red Hat Enterprise Linux 8 for x86_64 - AppStream RPMs 8
+        product: Red Hat Enterprise Linux for x86_64
+      - name: Red Hat Satellite Client 6 for RHEL 8 x86_64 RPMs
+        product: Red Hat Enterprise Linux for x86_64
+  - name: cv-os-rhel-9
+    description: RHEL 9 repositories from Red Hat
+    repositories:
+      - name: Red Hat Enterprise Linux 9 for x86_64 - BaseOS RPMs 9
+        product: Red Hat Enterprise Linux for x86_64
+      - name: Red Hat Enterprise Linux 9 for x86_64 - AppStream RPMs 9
+        product: Red Hat Enterprise Linux for x86_64
+      - name: Red Hat Satellite Client 6 for RHEL 9 x86_64 RPMs
+        product: Red Hat Enterprise Linux for x86_64
+  - name: cv-os-rhel-monthly
+    description: RHEL Content with errata until last day of the previous month
+    repositories:
+      - name: Red Hat Enterprise Linux 8 for x86_64 - BaseOS RPMs 8
+        product: Red Hat Enterprise Linux for x86_64
+      - name: Red Hat Enterprise Linux 8 for x86_64 - AppStream RPMs 8
+        product: Red Hat Enterprise Linux for x86_64
+      - name: Red Hat Satellite Client 6 for RHEL 8 x86_64 RPMs
+        product: Red Hat Enterprise Linux for x86_64
+      - name: Red Hat Enterprise Linux 9 for x86_64 - BaseOS RPMs 9
+        product: Red Hat Enterprise Linux for x86_64
+      - name: Red Hat Enterprise Linux 9 for x86_64 - AppStream RPMs 9
+        product: Red Hat Enterprise Linux for x86_64
+      - name: Red Hat Satellite Client 6 for RHEL 9 x86_64 RPMs
+        product: Red Hat Enterprise Linux for x86_64
+    filters:
+      - name: "filt-cv-os-rhel-monthly-rpm-errata-date"
+        description: Exclude errata released in the current month
+        filter_state: "present"
+        filter_type: "erratum"
+        rule_name: "rule-rpm-errata-date"
+        inclusion: false
+        # start_date will be 1-August, 1-September, 1-October, etc
+        start_date: "{{ lookup('ansible.builtin.pipe', 'date --date \"-0 month\" +%Y-%m-01') }}"
+        repositories: []
+  - name: cv-app-epel
+    description: EPEL
+    repositories:
+      - name: Extra Packages for Enterprise Linux 8 - x86_64
+        product: EPEL
+      - name: Extra Packages for Enterprise Linux 9 - x86_64
+        product: EPEL
+  - name: cv-app-mariadb
+    description: MariaDB Content
+    repositories:
+      - name: MariaDB 11.2 RHEL 8 - x86_64
+        product: MariaDB
+      - name: MariaDB 11.4 RHEL 8 - x86_64
+        product: MariaDB
+  - name: cv-app-spp
+    description: HPE SPP content
+    repositories:
+      - name: SPP for ProLiant Gen 9 for RHEL 8 - x86_64
+        product: HPE
+      - name: SPP for ProLiant Gen 10 for RHEL 8 - x86_64
+        product: HPE
+      - name: SPP for ProLiant Gen 11 for RHEL 8 - x86_64
+        product: HPE
+      - name: SPP for ProLiant Gen 10 for RHEL 9 - x86_64
+        product: HPE
+      - name: SPP for ProLiant Gen 11 for RHEL 9 - x86_64
+        product: HPE
+  - name: ccv-biz-soe-monthly
+    description: Monthly SOE RHEL plus satellite_products
+    auto_publish: true
+    components:
+      - content_view: cv-os-rhel-monthly
+        latest: true
+      - content_view: cv-app-spp
+        latest: true
+      - content_view: cv-app-epel
+        latest: true
+  - name: ccv-biz-database
+    description: Approved database content
+    auto_publish: true
+    components:
+      - content_view: cv-os-rhel-monthly
+        latest: true
+      - content_view: cv-app-mariadb
+        latest: true
+      - content_view: cv-app-spp
+        latest: true
+  # - name: cv-os-rhel-quarterly
+  # - name: cv-app-mongodb
+...
