@@ -77,9 +77,6 @@ A sample inventory for `Example Organization` running on a single Satellite serv
 
 The configuration consists of an inventory file at [sample_inventories/single_org_single_satellite/inventory.yml](sample_inventories/single_org_single_satellite/inventory.yml) and configuration defined as group_vars in [sample_inventories/single_org_single_satellite/group_vars/Example_Organization](sample_inventories/single_org_single_satellite/group_vars/Example_Organization).  The advantage of storing configuration in this way is that if a second satellite server is added later (eg for testing) then the configuration can be updated to fit the layout defined in the next section.
 
-
-
-
 ### Single Organization running on two Satellite servers
 
 The inventory is currently setup for my lab environment which consists of two servers, roughly mirroring a 'production' environment at `satellite.london.example.com` and a 'development' environment at `satellite.nyc.example.com`.  Using the standard [Ansible precedence](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_variables.html#understanding-variable-precedence) rules, configuration can be performed for common settings via [inventories/group_vars/Example_Organization](inventories/group_vars/Example_Organization/) and individual configuration via [inventories/host_vars](inventories/host_vars/).  For example, my development server could match production but mirror a subset of the repositories and host a subset of the content views.  The development environment overrides would be set via [inventories/host_vars](inventories/host_vars/) in the appropriate inventory directory.
@@ -129,31 +126,6 @@ The inventory is currently setup for my lab environment which consists of two se
 ### Multiple Organizations running on multiple Satellite servers
 
 If you wish you configure multiple Satellite servers, a valid option would be to replicate the single server inventory described above for each Satellite/Organization as needed.  These is nothing wrong with this approach.  However, if many of the configuration items are consistent between servers (for example, you want to have exactly the same products across all Satellite servers) then you can define the configuration in a single inventory, and define per-Satellite and per-Organization differences in the appropriate location.
-
-
-  hosts:
-    production.satellite.example.com:
-      satellite_server_url: https://production.satellite.example.com
-      satellite_validate_certs: false
-      satellite_username: admin
-      satellite_password: !vault |
-          $ANSIBLE_VAULT;1.1;AES256
-          64653563643633393937366439653764316430646532376163623737346135363165316239346531
-  vars:
-    ansible_connection: local
-    satellite_organization: "Example Organization"
-    registry_redhat_io_username: !vault |
-          $ANSIBLE_VAULT;1.1;AES256
-          64653563643633393937366439653764316430646532376163623737346135363165316239346531
-    registry_redhat_io_password: !vault |
-          $ANSIBLE_VAULT;1.1;AES256
-          64653563643633393937366439653764316430646532376163623737346135363165316239346531
-    satellite_rhsm_username: !vault |
-          $ANSIBLE_VAULT;1.1;AES256
-          64653563643633393937366439653764316430646532376163623737346135363165316239346531
-    satellite_rhsm_password: !vault |
-          $ANSIBLE_VAULT;1.1;AES256
-          64653563643633393937366439653764316430646532376163623737346135363165316239346531
 
 | Satellite Server | Organization | Inventory Name | Inventory Group / Satellite Organization Label |
 |  :---:   |     :---:       |  :---:   | :---:       |
@@ -232,17 +204,16 @@ To eliminate the need to provide the Vault password each run, a vault password f
 
 Details of the credentials used in the playbooks are shown below:
 
-### Simple deployment with one organization against one or more Satellite servers
+### Simple deployment with one organization against one Satellite server
 
 | Inventory File | Variable Name | Variable Use | Required | Where used |
 |  :---:   |     :---:       |  :---:   | :---:       |  :---:   |
-| [inventories/inventory.yml](inventories/inventory.yml) | satellite_username | The username that the Ansible playbook will use to login to the Satellite server | Yes | Used by all roles called by [satellite-configuration.yml](satellite-configuration.yml) |
-| [inventories/inventory.yml](inventories/inventory.yml) | satellite_password | The username that the Ansible playbook will use to login to the Satellite server | Yes | Used by all roles called by [satellite-configuration.yml](satellite-configuration.yml) |
-| [inventories/inventory.yml](inventories/inventory.yml) | satellite_rhsm_username | The username that the Ansible playbook will use to login to the Red Hat portal to download the Satellite manifest | No | Used when satellite_manifest is configured, for example in [inventories/group_vars/Example_Organization/satellite.manifest.yml](inventories/group_vars/Example_Organization/satellite.manifest.yml) |
-| [inventories/inventory.yml](inventories/inventory.yml) | satellite_rhsm_password | The password that the Ansible playbook will use to login to the Red Hat portal to download the Satellite manifest | No | Used when satellite_manifest is configured, for example in [inventories/group_vars/Example_Organization/satellite.manifest.yml](inventories/group_vars/Example_Organization/satellite.manifest.yml) |
+| [sample_inventories/single_org_single_satellite/inventory.yml](sample_inventories/single_org_single_satellite/inventory.yml) | satellite_username | The username that the Ansible playbook will use to login to the Satellite server | Yes | Used by all roles called by [satellite-configuration.yml](satellite-configuration.yml) |
+| [sample_inventories/single_org_single_satellite/inventory.yml](sample_inventories/single_org_single_satellite/inventory.yml) | satellite_password | The username that the Ansible playbook will use to login to the Satellite server | Yes | Used by all roles called by [satellite-configuration.yml](satellite-configuration.yml) |
+| [sample_inventories/single_org_single_satellite/inventory.yml](sample_inventories/single_org_single_satellite/inventory.yml) | rhsm_username | The username that the Ansible playbook will use to login to the Red Hat portal to download the Satellite manifest | No | Used when satellite_manifest is configured, for example in [sample_inventories/single_org_single_satellite/group_vars/Example_Organization/satellite_manifest.yml](sample_inventories/single_org_single_satellite/group_vars/Example_Organization/satellite_manifest.yml) |
+| [sample_inventories/single_org_single_satellite/inventory.yml](sample_inventories/single_org_single_satellite/inventory.yml) | rhsm_password | The password that the Ansible playbook will use to login to the Red Hat portal to download the Satellite manifest | No | Used when satellite_manifest is configured, for example in [sample_inventories/single_org_single_satellite/group_vars/Example_Organization/satellite_manifest.yml](sample_inventories/single_org_single_satellite/group_vars/Example_Organization/satellite_manifest.yml) |
 
-Note, if a different login is required for each Satellite server, update the details in [inventories/inventory.yml](inventories/inventory.yml).
-
+Note, if a different login is required for each Satellite server, update the details in | [sample_inventories/single_org_single_satellite/inventory.yml](sample_inventories/single_org_single_satellite/inventory.yml).
 
 ### Complex deployment with multiple organizations against one or more Satellite servers
 
@@ -250,15 +221,15 @@ Note, if a different login is required for each Satellite server, update the det
 |  :---:   |     :---:       |  :---:   | :---:       |  :---:   |
 | [sample_inventories/multi_org_multi_satellite/inventory.yml](sample_inventories/multi_org_multi_satellite/inventory.yml) | satellite_username | The username that the Ansible playbook will use to login to the Satellite server | Yes | Used by all roles called by [satellite-configuration.yml](satellite-configuration.yml) |
 | [sample_inventories/multi_org_multi_satellite/inventory.yml](sample_inventories/multi_org_multi_satellite/inventory.yml) | satellite_password | The username that the Ansible playbook will use to login to the Satellite server | Yes | Used by all roles called by [satellite-configuration.yml](satellite-configuration.yml) |
-| [sample_inventories/multi_org_multi_satellite/inventory.yml](sample_inventories/multi_org_multi_satellite/inventory.yml) | satellite_rhsm_username | The username that the Ansible playbook will use to login to the Red Hat portal to download the Satellite manifest | No | Used when satellite_manifest is configured, for example in [sample_inventories/multi_org_multi_satellite/host_vars/](sample_inventories/multi_org_multi_satellite/host_vars/).  Note that a unique manifest is required per Satellite organization AND per Satellite server. |
-| [sample_inventories/multi_org_multi_satellite/inventory.yml](sample_inventories/multi_org_multi_satellite/inventory.yml) | satellite_rhsm_password | The password that the Ansible playbook will use to login to the Red Hat portal to download the Satellite manifest | No | Used when satellite_manifest is configured, for example in [sample_inventories/multi_org_multi_satellite/host_vars/](sample_inventories/multi_org_multi_satellite/host_vars/),  Note that a unique manifest is required per Satellite organization AND per Satellite server. |
+| [sample_inventories/multi_org_multi_satellite/inventory.yml](sample_inventories/multi_org_multi_satellite/inventory.yml) | rhsm_username | The username that the Ansible playbook will use to login to the Red Hat portal to download the Satellite manifest | No | Used when satellite_manifest is configured, for example in [sample_inventories/multi_org_multi_satellite/host_vars/](sample_inventories/multi_org_multi_satellite/host_vars/).  Note that a unique manifest is required per Satellite organization AND per Satellite server. |
+| [sample_inventories/multi_org_multi_satellite/inventory.yml](sample_inventories/multi_org_multi_satellite/inventory.yml) | rhsm_password | The password that the Ansible playbook will use to login to the Red Hat portal to download the Satellite manifest | No | Used when satellite_manifest is configured, for example in [sample_inventories/multi_org_multi_satellite/host_vars/](sample_inventories/multi_org_multi_satellite/host_vars/),  Note that a unique manifest is required per Satellite organization AND per Satellite server. |
 | [sample_inventories/multi_org_multi_satellite/inventory.yml](sample_inventories/multi_org_multi_satellite/inventory.yml) | registry_redhat_io_username | The username that will be stored in Red Hat Satellite to allow downloads from registry.redhat.io | No | Used when docker type repositories are configured for download from registry.redhat.io, for example in [sample_inventories/multi_org_multi_satellite/group_vars/ACME_Organization/satellite_products.yml](sample_inventories/multi_org_multi_satellite/group_vars/ACME_Organization/satellite_products.yml). |
 | [sample_inventories/multi_org_multi_satellite/inventory.yml](sample_inventories/multi_org_multi_satellite/inventory.yml) | registry_redhat_io_password | The username that will be stored in Red Hat Satellite to allow downloads from registry.redhat.io | No | Used when docker type repositories are configured for download from registry.redhat.io, for example in [sample_inventories/multi_org_multi_satellite/group_vars/ACME_Organization/satellite_products.yml](sample_inventories/multi_org_multi_satellite/group_vars/ACME_Organization/satellite_products.yml). |
 
 
 ## Running the playbook against a single server
 
-`ansible-playbook --limit satellite.london.example.com -i inventories/ satellite-configuration.yml`
+`ansible-playbook --limit production.satellite.example.com -i sample_inventories/multi_org_multi_satellite satellite-configuration.yml`
 
 ## Initial deployment note
 
