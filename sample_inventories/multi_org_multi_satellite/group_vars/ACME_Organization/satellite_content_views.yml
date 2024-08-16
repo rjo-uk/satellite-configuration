@@ -76,13 +76,13 @@ satellite_content_views:
         product: Red Hat Enterprise Linux for x86_64
     filters:
       - name: "filt-cv-os-rhel-monthly-rpm-errata-date"
-        description: Exclude errata released after last day of previous month
+        description: Exclude errata released in the current month
         filter_state: "present"
         filter_type: "erratum"
         rule_name: "rule-rpm-errata-date"
-        inclusion: true
-        # end_date will be: 31-August, 30-September, 31-October, etc
-        end_date: "{{ lookup('ansible.builtin.pipe', 'date -d \"$(date +%Y-%m-01) -1 day\" +%Y-%m-%d') }}"
+        inclusion: false
+        # start_date will be 1-August, 1-September, 1-October, etc
+        start_date: "{{ lookup('ansible.builtin.pipe', 'date --date \"-0 month\" +%Y-%m-01') }}"
         repositories: []
   - name: cv-app-epel
     description: EPEL
