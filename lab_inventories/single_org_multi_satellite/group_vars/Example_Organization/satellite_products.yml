@@ -53,6 +53,10 @@ satellite_products:
   - name: Red Hat Satellite Capsule
     repository_sets:
       - name: Red Hat Satellite Capsule 6.15 for RHEL 8 x86_64 (RPMs)
+  - name: Red Hat Ansible Automation Platform
+    repository_sets:
+      - name: Red Hat Ansible Automation Platform 2.4 for RHEL 9 x86_64 (RPMs)
+      - name: Red Hat Ansible Automation Platform 2.4 for RHEL 8 x86_64 (RPMs)
   - name: EPEL
     description: Extra Packages for Enterprise Linux
     repositories:
