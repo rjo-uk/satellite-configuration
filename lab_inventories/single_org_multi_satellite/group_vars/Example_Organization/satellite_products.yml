@@ -42,12 +42,17 @@ satellite_products:
     repository_sets:
       - name: Red Hat Enterprise Linux 8 for x86_64 - BaseOS (RPMs)
         releasever: 8
-      # Kickstart repos needed for in-place upgrades
-      - name: Red Hat Enterprise Linux 8 for x86_64 - BaseOS (Kickstart)
+      # Need 8.10 repos for in-place upgrades
+      - name: Red Hat Enterprise Linux 8 for x86_64 - BaseOS (RPMs)
       # Hint, must quote "8.10" otherwise Ansible converts this to "8.1" which is not what we require
+        releasever: "8.10"
+      # Kickstart repos needed for Satellite provisioning
+      - name: Red Hat Enterprise Linux 8 for x86_64 - BaseOS (Kickstart)
         releasever: "8.10"
       - name: Red Hat Enterprise Linux 8 for x86_64 - AppStream (RPMs)
         releasever: 8
+      - name: Red Hat Enterprise Linux 8 for x86_64 - AppStream (RPMs)
+        releasever: "8.10"
       - name: Red Hat Enterprise Linux 8 for x86_64 - AppStream (Kickstart)
         releasever: "8.10"
       - name: Red Hat Satellite Client 6 for RHEL 8 x86_64 (RPMs)
@@ -55,10 +60,14 @@ satellite_products:
       - name: Red Hat Satellite Utils 6.15 for RHEL 8 x86_64 (RPMs)
       - name: Red Hat Enterprise Linux 9 for x86_64 - BaseOS (RPMs)
         releasever: 9
+      - name: Red Hat Enterprise Linux 9 for x86_64 - BaseOS (RPMs)
+        releasever: 9.4
       - name: Red Hat Enterprise Linux 9 for x86_64 - BaseOS (Kickstart)
         releasever: 9.4
       - name: Red Hat Enterprise Linux 9 for x86_64 - AppStream (RPMs)
         releasever: 9
+      - name: Red Hat Enterprise Linux 9 for x86_64 - AppStream (RPMs)
+        releasever: 9.4
       - name: Red Hat Enterprise Linux 9 for x86_64 - AppStream (Kickstart)
         releasever: 9.4
       - name: Red Hat Satellite Client 6 for RHEL 9 x86_64 (RPMs)
