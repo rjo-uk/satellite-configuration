@@ -1,6 +1,6 @@
 ---
-satellite_locations:
-  - name: Default Location
-    organisations:
-      - ACME Organization
+# satellite_locations:
+#   - name: Default Location
+#     organisations:
+#       - ACME Organization
 ...

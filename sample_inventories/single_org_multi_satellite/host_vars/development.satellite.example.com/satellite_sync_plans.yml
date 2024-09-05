@@ -1,5 +1,5 @@
 ---
-satellite_sync_plans: []
+# satellite_sync_plans: []
 #  - name: Weekly Sync
 #    interval: weekly
 #    sync_date: 2020-11-07 00:00:00 UTC

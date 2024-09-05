@@ -1,6 +1,6 @@
 ---
-satellite_locations:
-  - name: Default Location
-    organisations:
-      - Internal Organization
+# satellite_locations:
+#   - name: Default Location
+#     organisations:
+#       - Internal Organization
 ...

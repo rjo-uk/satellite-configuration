@@ -1,13 +1,13 @@
 ---
-satellite_settings:
+# satellite_settings:
 #
 # List of settings can be found from running:
 # hammer --csv --csv-separator ': ' --no-headers settings list --fields 'Name,Value'
 #
-  - name: allow_auto_inventory_upload
-    value: true
-  - name: allow_auto_insights_sync
-    value: true
+# - name: allow_auto_inventory_upload
+#   value: true
+# - name: allow_auto_insights_sync
+#   value: true
 # allow_auto_insights_mismatch_delete: false
 # obfuscate_inventory_hostnames: false
 # obfuscate_inventory_ips: false

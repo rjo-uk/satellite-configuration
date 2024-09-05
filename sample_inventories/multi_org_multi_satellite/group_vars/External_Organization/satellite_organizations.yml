@@ -1,9 +1,9 @@
 ---
-satellite_organizations:
-  - name: Default Organization
-    label: Default_Organization
-    state: present
-  - name: External Organization
-    label: External_Organization
-    state: present
+# satellite_organizations:
+#   - name: Default Organization
+#     label: Default_Organization
+#     state: present
+#   - name: External Organization
+#     label: External_Organization
+#     state: present
 ...

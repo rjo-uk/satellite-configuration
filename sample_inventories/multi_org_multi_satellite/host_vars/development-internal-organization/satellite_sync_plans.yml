@@ -1,4 +1,4 @@
 ---
 # Don't set a sync plan in the development environment
-satellite_sync_plans: []
+# satellite_sync_plans: []
 ...
