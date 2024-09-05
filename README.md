@@ -1,6 +1,6 @@
 # satellite-configuration
 
-Sample configuration for Red Hat Satellite
+An ansible playbook and sample configuration for Red Hat Satellite.
 
 ## Requirements
 
@@ -29,6 +29,104 @@ token=CHANGEME
 `ansible-galaxy collection install redhat.satellite`
 
 By default, this will install into `~/.ansible/collections/ansible_collections/redhat/satellite/`
+
+## Getting Started
+
+Clone this repository into a working area.  Read the notes below and browse the [sample_inventories](sample_inventories) to locate an inventory structure that matches your environment.  If you are automating the configuration of a single Satellite server, [sample_inventories/single_org_single_satellite](sample_inventories/single_org_single_satellite) is a sensible choice.  Copy the selected inventory structure to an `inventories` directory.
+
+Example:
+
+```
+git clone https://github.com/rjo-uk/satellite-configuration
+cd satellite-configuration
+cp -rpv sample_inventories/single_org_single_satellite inventories
+```
+
+The configuration of your Satellite will take place within this `inventories` directory.
+
+Update the following fields in inventories/inventory.yml file:
+
+> Example_Organization:
+
+Replace with your company, department or organisation name.  See https://docs.redhat.com/en/documentation/red_hat_satellite/6.15/html/administering_red_hat_satellite/managing_organizations_admin for details.  Ideally, this field will not have special characters and `spaces` should be replaced with underscores `_`.
+
+> production.satellite.example.com
+
+The FQDN of the satellite server.
+
+>  satellite_validate_certs: false
+
+If the server from where you will run the playbook can securely connect to the Satellite server over https, this can be set to true.  If the server has a self-signed certificate, you will likely want this to be to `false`.
+
+> satellite_username: admin
+
+The default administrative username for Satellite is `admin`, however if another account should be used to configure Satellite, enter it here.
+
+> satellite_password: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          64653563643633393937366439653764316430646532376163623737346135363165316239346531
+  
+An encrypted or unencrypted password that allows the playbook to login to the Satellite server.
+
+> satellite_organization: "Example Organization"
+
+A human friendly name of your company, department or organization name.  This is typically the same as the organization name above, but can have spaces.
+
+> registry_redhat_io_username: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          64653563643633393937366439653764316430646532376163623737346135363165316239346531
+
+Optional.  If synchronizing containers from quay.io, the encrypted or unencrypted username to authenticate with.
+
+>    registry_redhat_io_password: !vault |
+>          $ANSIBLE_VAULT;1.1;AES256
+>          64653563643633393937366439653764316430646532376163623737346135363165316239346531
+
+Optional.  If synchronizing containers from quay.io, the encrypted or unencrypted username to authenticate with.
+
+>    rhsm_username: !vault |
+>         $ANSIBLE_VAULT;1.1;AES256
+>         64653563643633393937366439653764316430646532376163623737346135363165316239346531
+
+Optional.  If the playbook should download the Red Hat Satellite manifest from the Red Hat customer portal, enter the encrypted or unencrypted username to authenticate with.
+
+>   rhsm_password: !vault |
+>         $ANSIBLE_VAULT;1.1;AES256
+>         64653563643633393937366439653764316430646532376163623737346135363165316239346531
+
+Optional.  If the playbook should download the Red Hat Satellite manifest from the Red Hat customer portal, the encrypted or unencrypted password to authenticate with.
+
+All `satellite_` content within the `inventories` directory tree should be commented out.  Running the playbook as follows should result in no changes being made:
+
+`ansible-playbook -i inventories/ satellite-configuration.yml -C`
+
+All tasks are skipped since the configuration is commented out.
+
+Rename the directory `inventories/group_vars/Example_Organization` to match the updated name you provided above.  For example, if your organization is called `New Widgets` you would do the following:
+
+`mv inventories/group_vars/Example_Organization inventories/group_vars/New_Widgets`
+
+You can now begin to make changes.  For example, uncomment and update the `satellite_organizations.yml` file in the `inventories/group_vars/New_Widgets/` directory.
+
+Example:
+
+```
+---
+satellite_organizations:
+  - name: Default Organization
+    label: Default_Organization
+    state: present
+  - name: New Widgets
+    label: New_Widgets
+    state: present
+...
+```
+
+Re-run the playbook and should see the changes that would be made:
+
+`ansible-playbook -i inventories/ satellite-configuration.yml -C`
+
+Re-run the playbook a final time without the `-C` option to apply the changes when you are happy.  Continue by updating the other yaml configuration files in the inventories directories and running the playbook as needed.
 
 ## Playbook
 
@@ -151,7 +249,6 @@ Configuration that is specific to an Organization (on all Satellite servers wher
 Note: it is still possible to set per-Organization-AND-Satellite overrides, as described in the next section.
 
 #### Configuration that is unique to a specific Organization on a specific Satellite server
-
 
 Configuration that is specific to an Organization on a named Satellite server will be placed in the `Inventory Name` directory in [sample_inventories/multi_org_multi_satellite/host_vars](sample_inventories/multi_org_multi_satellite/host_vars).  For example, each Organization on each Satellite server will need to have it's own manifest file.  The configuration that sets the Satellite Manifest for the ACME Organization on the development Satellite server is placed in [sample_inventories/multi_org_multi_satellite/host_vars/development-acme-organization/satellite_manifest.yml]([sample_inventories/multi_org_multi_satellite/host_vars/development-acme-organization/satellite_manifest.yml).
 
