@@ -100,6 +100,13 @@ satellite_products:
   - name: HPE
     description: HPE Software Delivery Repository
     repositories:
+      - name: SPP for ProLiant Gen 9 for RHEL 7 - x86_64
+        label: hpe-spp-gen9-for-rhel-7-x86_64-rpms
+        content_type: yum
+        url: https://downloads.linux.hpe.com/SDR/repo/spp-gen9/RedHat/7Server/x86_64/current/
+        gpg_key: RPM-GPG-KEY-SPP
+        download_policy: on_demand
+        os_versions: rhel-7
       - name: SPP for ProLiant Gen 9 for RHEL 8 - x86_64
         label: hpe-spp-gen9-for-rhel-8-x86_64-rpms
         content_type: yum
@@ -107,6 +114,13 @@ satellite_products:
         gpg_key: RPM-GPG-KEY-SPP
         download_policy: on_demand
         os_versions: rhel-8
+      - name: SPP for ProLiant Gen 10 for RHEL 7 - x86_64
+        label: hpe-spp-gen10-for-rhel-7-x86_64-rpms
+        content_type: yum
+        url: https://downloads.linux.hpe.com/SDR/repo/spp-gen10/RedHat/7Server/x86_64/current/
+        gpg_key: RPM-GPG-KEY-SPP
+        download_policy: on_demand
+        os_versions: rhel-7
       - name: SPP for ProLiant Gen 10 for RHEL 8 - x86_64
         label: hpe-spp-gen10-for-rhel-8-x86_64-rpms
         content_type: yum
