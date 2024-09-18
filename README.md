@@ -44,11 +44,11 @@ cp -rpv sample_inventories/single_org_single_satellite inventories
 
 The configuration of your Satellite will take place within this `inventories` directory.
 
-Update the following fields in inventories/inventory.yml file:
+Update the following fields in the `inventories/inventory.yml` file:
 
 > Example_Organization:
 
-Replace with your company, department or organisation name.  See https://docs.redhat.com/en/documentation/red_hat_satellite/6.15/html/administering_red_hat_satellite/managing_organizations_admin for details.  Ideally, this field will not have special characters and `spaces` should be replaced with underscores `_`.
+Replace with your company, department or organization name.  See https://docs.redhat.com/en/documentation/red_hat_satellite/6.15/html/administering_red_hat_satellite/managing_organizations_admin for details.  Ideally, this field will not have special characters and `spaces` should be replaced with underscores `_`.
 
 > production.satellite.example.com
 
@@ -56,7 +56,7 @@ The FQDN of the satellite server.
 
 >  satellite_validate_certs: false
 
-If the server from where you will run the playbook can securely connect to the Satellite server over https, this can be set to true.  If the server has a self-signed certificate, you will likely want this to be to `false`.
+If the server from where you will run the playbook can securely connect to the Satellite server over https, this can be set to `true`.  If the server has a self-signed certificate, you will likely want this to be to `false`.
 
 > satellite_username: admin
 
@@ -440,4 +440,4 @@ The naming convention described depends on whether Content Views will be consume
 
 | Naming Convention | Examples |
 |       :---:       |  :---:   |
-| < org > - < compute resource name > - < location > | example-organisation-rhelosp-london |
+| < org > - < compute resource name > - < location > | example-organization-rhelosp-london |
