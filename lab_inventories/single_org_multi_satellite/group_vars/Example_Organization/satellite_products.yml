@@ -12,6 +12,9 @@ satellite_products:
         basearch: x86_64
       - name: Red Hat Enterprise Linux 6 Server - Extras (RPMs)
         basearch: x86_64
+      - name: Red Hat Enterprise Linux 6 Server - Optional (RPMs)
+        basearch: x86_64
+        releasever: 6Server
       - name: Red Hat Enterprise Linux 6 Server - Supplementary (RPMs)
         basearch: x86_64
         releasever: 6Server
@@ -28,6 +31,9 @@ satellite_products:
         releasever: 7Server
       - name: Red Hat Satellite Client 6 (for RHEL 7 Server) (RPMs)
         basearch: x86_64
+      - name: Red Hat Enterprise Linux 7 Server (Kickstart)
+        basearch: x86_64
+        releasever: 7.9
   - name: Red Hat Software Collections (for RHEL Server)
     repository_sets:
       - name: Red Hat Software Collections RPMs for Red Hat Enterprise Linux 6 Server
