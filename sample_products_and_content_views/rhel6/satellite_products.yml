@@ -1,0 +1,23 @@
+---
+satellite_products:
+  - name: Red Hat Enterprise Linux Server
+    repository_sets:
+      # RHEL 6 is now EOL. The Retired Extended Life Cycle Support repositories
+      # contains all available RHEL 6 content.
+      # rhel-6-server-els-rpms becomes rhel-6-server-retired-els-rpms
+      # rhel-6-server-els-optional-rpms becomes rhel-6-server-retired-els-optional-rpms
+      - name: Red Hat Enterprise Linux 6 Server - Retired Extended Life Cycle Support (RPMs)
+        basearch: x86_64
+      - name: Red Hat Enterprise Linux 6 Server - Retired Extended Life Cycle Support - Optional (RPMs)
+        basearch: x86_64
+      - name: Red Hat Enterprise Linux 6 Server - Extras (RPMs)
+        basearch: x86_64
+      - name: Red Hat Enterprise Linux 6 Server - Supplementary (RPMs)
+        basearch: x86_64
+        releasever: 6Server
+  - name: Red Hat Software Collections (for RHEL Server)
+    repository_sets:
+      - name: Red Hat Software Collections RPMs for Red Hat Enterprise Linux 6 Server
+        basearch: x86_64
+        releasever: 6Server
+...

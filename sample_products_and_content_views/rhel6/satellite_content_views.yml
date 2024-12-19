@@ -1,0 +1,16 @@
+---
+satellite_content_views:
+  - name: cv-os-rhel-6
+    description: RHEL 6 repositories from Red Hat
+    repositories:
+      - name: Red Hat Enterprise Linux 6 Server - Retired Extended Life Cycle Support RPMs x86_64
+        product: Red Hat Enterprise Linux Server
+      - name: Red Hat Enterprise Linux 6 Server - Retired Extended Life Cycle Support - Optional RPMs x86_64
+        product: Red Hat Enterprise Linux Server
+      - name: Red Hat Enterprise Linux 6 Server - Extras RPMs x86_64
+        product: Red Hat Enterprise Linux Server
+      - name: Red Hat Enterprise Linux 6 Server - Supplementary RPMs x86_64 6Server
+        product: Red Hat Enterprise Linux Server
+      - name: Red Hat Software Collections RPMs for Red Hat Enterprise Linux 6 Server x86_64 6Server
+        product: Red Hat Software Collections (for RHEL Server)
+...
