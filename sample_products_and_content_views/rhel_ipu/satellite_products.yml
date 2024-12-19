@@ -1,0 +1,63 @@
+---
+# Products we need to sync
+#
+# RHEL 6.x to RHEL 7.9 RUT upgrades
+#
+# On RHEL 6.x we require:
+# rhel-6-server-els-rpms OR rhel-6-server-retired-els-rpms
+# rhel-6-server-els-optional-rpms OR rhel-6-server-retired-els-optional-rpms
+# To upgrade to RHEL 7.9 we require:
+# RHEL 7.9 kickstart
+# Content becomes available at a URI path as
+# /pulp/content/Example_Organization/Library/content/dist/rhel/server/7/7.9/x86_64/kickstart/
+#
+# RHEL 7.x to RHEL 8.10
+#
+# On RHEL 7.x we require:
+# rhel-7-TODO
+# rhelTODO
+# To upgrade to RHEL 8.10 we require:
+# Clients are subscribed to Satellite
+# TODO 
+# TODO
+# Content becomes available at a URI such as
+# /pulp/content/Example_Organization/Library/content/dist/rhel8/8.10/x86_64/
+#
+# RHEL 8.x to RHEL 9.4
+#
+# On RHEL 8.x we require:
+#
+# To upgrade to RHEL 9.4 we require:
+# Clients are subscribed to Satellite
+#
+#
+# Content becomes available at a URI such as
+# /pulp/content/Example_Organization/Library/content/dist/rhel9/9.4/x86_64/
+#
+satellite_products:
+  - name: Red Hat Enterprise Linux Server
+    repository_sets:
+      - name: Red Hat Enterprise Linux 6 Server - Retired Extended Life Cycle Support (RPMs)
+        basearch: x86_64
+      - name: Red Hat Enterprise Linux 6 Server - Retired Extended Life Cycle Support - Optional (RPMs)
+        basearch: x86_64
+      - name: Red Hat Enterprise Linux 7 Server (Kickstart)
+        basearch: x86_64
+        releasever: 7.9
+      - name: Red Hat Enterprise Linux 7 Server (RPMs)
+        basearch: x86_64
+        releasever: 7Server
+      - name: Red Hat Enterprise Linux 7 Server - Extras (RPMs)
+        basearch: x86_64
+  - name: Red Hat Enterprise Linux for x86_64
+    repository_sets:
+      - name: Red Hat Enterprise Linux 8 for x86_64 - BaseOS (RPMs)
+      # Hint, must quote "8.10" otherwise Ansible converts this to "8.1" which is not what we require
+        releasever: "8.10"
+      - name: Red Hat Enterprise Linux 8 for x86_64 - AppStream (RPMs)
+        releasever: "8.10"
+      - name: Red Hat Enterprise Linux 9 for x86_64 - BaseOS (RPMs)
+        releasever: 9.4
+      - name: Red Hat Enterprise Linux 9 for x86_64 - AppStream (RPMs)
+        releasever: 9.4
+...

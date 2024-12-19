@@ -1,0 +1,28 @@
+---
+# Note, for RHEL 6 to RHEL 7 we don't need to add RHEL 7 content in a content
+# view if we use the RHEL 7.9 kickstart product.
+#
+# For upgrades to RHEL 8.10 and RHEL 9.4 if we are using clients that
+# subscribe with rhsm then the repos below are needed
+#
+satellite_content_views:
+  - name: cv-os-rhel-ipu
+    description: RHEL In-Place Upgrade Repositories
+    repositories:
+      - name: Red Hat Enterprise Linux 6 Server - Retired Extended Life Cycle Support RPMs x86_64
+        product: Red Hat Enterprise Linux Server
+      - name: Red Hat Enterprise Linux 6 Server - Retired Extended Life Cycle Support - Optional RPMs x86_64
+        product: Red Hat Enterprise Linux Server
+      - name: Red Hat Enterprise Linux 7 Server RPMs x86_64 7Server
+        product: Red Hat Enterprise Linux Server
+      - name: Red Hat Enterprise Linux 7 Server - Extras RPMs x86_64
+        product: Red Hat Enterprise Linux Server
+      - name: Red Hat Enterprise Linux 8 for x86_64 - BaseOS RPMs 8.10
+        product: Red Hat Enterprise Linux for x86_64
+      - name: Red Hat Enterprise Linux 8 for x86_64 - AppStream RPMs 8.10
+        product: Red Hat Enterprise Linux for x86_64
+      - name: Red Hat Enterprise Linux 9 for x86_64 - BaseOS RPMs 9.4
+        product: Red Hat Enterprise Linux for x86_64
+      - name: Red Hat Enterprise Linux 9 for x86_64 - AppStream RPMs 9.4
+        product: Red Hat Enterprise Linux for x86_64
+...
