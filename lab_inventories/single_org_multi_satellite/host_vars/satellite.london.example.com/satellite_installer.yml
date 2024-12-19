@@ -1,0 +1,57 @@
+---
+satellite_installer_rhsm_user: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          64653563643633393937366439653764316430646532376163623737346135363165316239346531
+satellite_installer_rhsm_password: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          64653563643633393937366439653764316430646532376163623737346135363165316239346531
+satellite_installer_syspurpose:
+  usage: "Production"
+  role: "Red Hat Enterprise Server"
+  service_level_agreement: "Premium"
+  sync: true
+satellite_installer_packages:
+  - firewalld
+  - bash-completion
+  - satellite
+  - insights-client
+satellite_installer_dnf_repositories:
+  - rhel-9-for-x86_64-baseos-rpms
+  - rhel-9-for-x86_64-appstream-rpms
+  - satellite-6.16-for-rhel-9-x86_64-rpms
+  - satellite-maintenance-6.16-for-rhel-9-x86_64-rpms
+satellite_installer_firewall_ports:
+  - 8000/tcp
+  - 9090/tcp
+satellite_installer_firewall_services:
+  - dns
+  - dhcp
+  - tftp
+  - http
+  - https
+  - puppetmaster
+satellite_installer_scenario: satellite
+satellite_installer_package: satellite-installer
+satellite_installer_options:
+  - '--tuning development'
+  - '--foreman-proxy-dhcp true'
+  - '--foreman-proxy-dhcp-managed true'
+  - '--foreman-proxy-dhcp-gateway 192.168.123.1'
+  - '--foreman-proxy-dhcp-interface eth1'
+  - '--foreman-proxy-dhcp-nameservers 192.168.123.20'
+  - '--foreman-proxy-dhcp-range "192.168.123.50 192.168.123.250"'
+  - '--foreman-proxy-dhcp-server 192.168.123.20'
+  - '--foreman-proxy-dns true'
+  - '--foreman-proxy-dns-managed true'
+  - '--foreman-proxy-dns-forwarders 192.168.122.1'
+  - '--foreman-proxy-dns-interface eth1'
+  - '--foreman-proxy-dns-reverse 123.168.192.in-addr.arpa'
+  - '--foreman-proxy-dns-server 192.168.123.20'
+  - '--foreman-proxy-dns-zone london.example.com'
+  - '--foreman-proxy-tftp true'
+  - '--foreman-proxy-tftp-managed true'
+  - '--foreman-proxy-tftp-servername 192.168.123.20'
+  - '--foreman-initial-admin-username admin'
+  - '--foreman-initial-admin-password CHANGEME'
+  - '--register-with-insights'
+...

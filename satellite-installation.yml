@@ -1,0 +1,96 @@
+---
+# Install Red Hat Satellite using the redhat.satellite_operations collection
+- name: Satellite Installation
+  hosts: all
+  become: true
+  gather_facts: false
+  vars:
+    # For satellite0configuration we typically connect from where Ansible is running
+    # to the Satellite API.  When installing Satellite, we need to connect over ssh
+    # We therefore override the ansible_connection string we set in the inventory
+    ansible_connection: ssh
+  collections:
+    - redhat.satellite_operations
+
+  tasks:
+    - name: Register Satellite server to Red Hat using user with password
+      community.general.redhat_subscription:
+        state: present
+        username: "{{ satellite_installer_rhsm_user }}"
+        password: "{{ satellite_installer_rhsm_password }}"
+        syspurpose: "{{ satellite_installer_syspurpose | default(omit) }}"
+      when:
+        - satellite_installer_rhsm_user is defined
+    - name: Disable all repos before we configure the ones we require
+      community.general.rhsm_repository:
+        name: '*'
+        state: disabled
+      when:
+        - satellite_installer_dnf_repositories is defined
+    - name: Ensure the Satellite repositories are enabled
+      community.general.rhsm_repository:
+        name: "{{ satellite_installer_dnf_repositories }}"
+        state: enabled
+      when:
+        - satellite_installer_dnf_repositories is defined
+    - name: Install the required Satellite packages
+      ansible.builtin.package:
+        name: "{{ satellite_installer_packages }}"
+        state: installed
+      when:
+        - satellite_installer_packages is defined
+    - name: Enable service firewalld and ensure it is not masked
+      ansible.builtin.systemd_service:
+        name: firewalld.service
+        state: started
+        enabled: true
+        masked: false
+      when:
+        - ( satellite_installer_firewall_ports is defined ) or
+          ( satellite_installer_firewall_services is defined )
+    - name: Permanently enable Satellite firewall ports, also enable them immediately if possible
+      ansible.posix.firewalld:
+        port: "{{ firewall_port }}"
+        state: enabled
+        permanent: true
+        immediate: true
+      loop: "{{ satellite_installer_firewall_ports }}"
+      loop_control:
+        loop_var: firewall_port
+      when:
+        - satellite_installer_firewall_ports is defined
+      tags: test
+    - name: Permanently enable Satellite firewall services, also enable them immediately if possible
+      ansible.posix.firewalld:
+        service: "{{ firewall_service }}"
+        state: enabled
+        permanent: true
+        immediate: true
+      loop: "{{ satellite_installer_firewall_services }}"
+      loop_control:
+        loop_var: firewall_service
+      when:
+        - satellite_installer_firewall_services is defined
+      tags: test
+    - name: Upgrade all packages
+      ansible.builtin.dnf:
+        name: "*"
+        state: latest
+    # TODO
+    # grubby --args="transparent_hugepage=never" --update-kernel ALL
+    - name: Run the redhat.satellite_operations roles
+      ansible.builtin.include_role:
+        name: "{{ __include_role['name'] }}"
+        apply:
+          tags: "{{ __include_role['tags'] }}"
+      when: vars[__include_role.var] is defined
+      tags: always
+      loop_control:
+        loop_var: __include_role
+      loop:
+        - { name: redhat.satellite_operations.installer, var: satellite_installer_scenario, tags: installer }
+        - { name: redhat.satellite_operations.cloud_connector, var: satellite_cloud_connector_url, tags: cloud_connector }
+    # TODO
+    # If a new kernel is installed, display a message advising a reboot is required to complete
+    # the installation
+...
