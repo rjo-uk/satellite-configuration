@@ -332,6 +332,88 @@ Note, if a different login is required for each Satellite server, update the det
 
 When the playbook is first run with all tags (the default) on a newly installed Satellite server, any content views which are defined will be created but NOT published.  This may mean that later tasks such as activation key creation may fail, due to the content views not being available in the lifecycle environments.  It is expected that on a new install, the configuration will gradually be built up and tested, using tags to control which parts of the configuration are applied.  As part of this, manual testing of product synchronization and content view publishing may be required.  Once content views are published, the playbook should then continue to run successfully and should be fully idempotent in behavior.
 
+##  Sample products and content views
+
+The [sample_products_and_content_views](sample_products_and_content_views) directory lists a number of Satellite production and content view configurations which can be used as references to include in your inventories on configure Satellite as one-off tasks.  The configurations are typically in two files, one for products and one for content views so you can choose if you want use one of them rater than both.
+
+===  RHEL In-Place Upgrades
+
+The directory [sample_products_and_content_views/rhel_ipu]() contains sample products and content views for Red Hat In-Place upgrades from RHEL 6 (using RUT) and RHEL 7/8 (using Leapp).
+
+Sample use:
+
+```
+ansible-playbook -i inventories satellite-configuration.yml \
+-e @sample_products_and_content_views/rhel_ipu/satellite_products.yml \
+-e @sample_products_and_content_views/rhel_ipu/satellite_content_views.yml \
+-t repositories,content_views -D
+```
+
+=== Satellite 6.15 Products and Client Tools
+
+The directory [sample_products_and_content_views/satellite_615]() contains sample products and content views for Satellite 6.15 server, capsule, utils, maintenance and client tools.
+
+Sample use:
+
+```
+ansible-playbook -i inventories satellite-configuration.yml \
+-e @sample_products_and_content_views/satellite_615/satellite_products.yml \
+-e @sample_products_and_content_views/satellite_615/satellite_content_views.yml \
+-t repositories,content_views -D
+```
+
+=== RHEL 6
+
+The directory [sample_products_and_content_views/rhel6]() contains sample products and content views for RHEL 6 Retired content.
+
+Sample use:
+
+```
+ansible-playbook -i inventories satellite-configuration.yml \
+-e @sample_products_and_content_views/rhel6/satellite_products.yml \
+-e @sample_products_and_content_views/rhel6/satellite_content_views.yml \
+-t repositories,content_views -D
+```
+
+=== RHEL 7
+
+The directory [sample_products_and_content_views/rhel7]() contains sample products and content views for RHEL 7 content.
+
+Sample use:
+
+```
+ansible-playbook -i inventories satellite-configuration.yml \
+-e @sample_products_and_content_views/rhel7/satellite_products.yml \
+-e @sample_products_and_content_views/rhel7/satellite_content_views.yml \
+-t repositories,content_views -D
+```
+
+=== RHEL 8
+
+The directory [sample_products_and_content_views/rhel8]() contains sample products and content views for RHEL 8 content.
+
+Sample use:
+
+```
+ansible-playbook -i inventories satellite-configuration.yml \
+-e @sample_products_and_content_views/rhel8/satellite_products.yml \
+-e @sample_products_and_content_views/rhel8/satellite_content_views.yml \
+-t repositories,content_views -D
+```
+
+=== RHEL 9
+
+The directory [sample_products_and_content_views/rhel9]() contains sample products and content views for RHEL 9 content.
+
+Sample use:
+
+```
+ansible-playbook -i inventories satellite-configuration.yml \
+-e @sample_products_and_content_views/rhel9/satellite_products.yml \
+-e @sample_products_and_content_views/rhel9/satellite_content_views.yml \
+-t repositories,content_views -D
+```
+
 ## Naming Conventions
 
 Although not required, a standard naming convention for Satellite resources provides support teams with a consistent experience and allows automation and scripting tools to use pattern matching and regular expressions to audit and manipulate the environment.  The PDF guide [10 Steps to Build an SOE: How Red Hat Satellite 6 Supports Setting up a Standard Operating Environment](https://access.redhat.com/articles/1585273) suggests a possible naming convention.  This repository uses some naming conventions from that guide along with some opinionated modifications.
