@@ -62,28 +62,28 @@ satellite_products:
       - name: Red Hat Enterprise Linux 8 for x86_64 - AppStream (Kickstart)
         releasever: "8.10"
       - name: Red Hat Satellite Client 6 for RHEL 8 x86_64 (RPMs)
-      - name: Red Hat Satellite Maintenance 6.16 for RHEL 8 x86_64 (RPMs)
-      - name: Red Hat Satellite Utils 6.16 for RHEL 8 x86_64 (RPMs)
+      - name: Red Hat Satellite Maintenance 6.17 for RHEL 9 x86_64 (RPMs)
+      - name: Red Hat Satellite Utils 6.17 for RHEL 9 x86_64 (RPMs)
       - name: Red Hat Enterprise Linux 9 for x86_64 - BaseOS (RPMs)
         releasever: 9
       - name: Red Hat Enterprise Linux 9 for x86_64 - BaseOS (RPMs)
-        releasever: 9.4
+        releasever: 9.6
       - name: Red Hat Enterprise Linux 9 for x86_64 - BaseOS (Kickstart)
-        releasever: 9.4
+        releasever: 9.6
       - name: Red Hat Enterprise Linux 9 for x86_64 - AppStream (RPMs)
         releasever: 9
       - name: Red Hat Enterprise Linux 9 for x86_64 - AppStream (RPMs)
-        releasever: 9.4
+        releasever: 9.6
       - name: Red Hat Enterprise Linux 9 for x86_64 - AppStream (Kickstart)
-        releasever: 9.4
+        releasever: 9.6
       - name: Red Hat Satellite Client 6 for RHEL 9 x86_64 (RPMs)
   - name: Red Hat Satellite Capsule
     repository_sets:
-      - name: Red Hat Satellite Capsule 6.16 for RHEL 8 x86_64 (RPMs)
+      - name: Red Hat Satellite Capsule 6.17 for RHEL 9 x86_64 (RPMs)
   - name: Red Hat Ansible Automation Platform
     repository_sets:
-      - name: Red Hat Ansible Automation Platform 2.4 for RHEL 9 x86_64 (RPMs)
-      - name: Red Hat Ansible Automation Platform 2.4 for RHEL 8 x86_64 (RPMs)
+      - name: Red Hat Ansible Automation Platform 2.5 for RHEL 9 x86_64 (RPMs)
+      - name: Red Hat Ansible Automation Platform 2.5 for RHEL 8 x86_64 (RPMs)
   - name: EPEL
     description: Extra Packages for Enterprise Linux
     repositories:
@@ -110,9 +110,7 @@ satellite_products:
         gpg_key: RPM-GPG-KEY-EPEL-10
         # Note: on_demand may not be advisable for production environments
         download_policy: on_demand
-        # As of Satellite 6.16.1, cannot restrict to RHEL 10
-        # value of os_versions must be one or more of: rhel-6, rhel-7, rhel-8, rhel-9. Got no match for: rhel-10
-        # os_versions: rhel-10
+        os_versions: rhel-10
   - name: HPE
     description: HPE Software Delivery Repository
     repositories:
