@@ -1,5 +1,8 @@
 ---
 satellite_activation_keys:
+  - name: "act-library"
+    lifecycle_environment: "Library"
+    content_view: "Default Organization View"
   - name: "act-dev-test-biz-soe"
     lifecycle_environment: "dev-test"
     content_view: "ccv-biz-soe-monthly"
