@@ -4,7 +4,7 @@ satellite_installer_rhsm_user: !vault |
           64653563643633393937366439653764316430646532376163623737346135363165316239346531
 satellite_installer_rhsm_password: !vault |
           $ANSIBLE_VAULT;1.1;AES256
-          64653563643633393937366439653764316430646532376163623737346135363165316239346531
+          64653563643633393937366439653764316430646532376163623737346135363165316239346531q
 satellite_installer_syspurpose:
   usage: "Production"
   role: "Red Hat Enterprise Server"
@@ -18,8 +18,8 @@ satellite_installer_packages:
 satellite_installer_dnf_repositories:
   - rhel-9-for-x86_64-baseos-rpms
   - rhel-9-for-x86_64-appstream-rpms
-  - satellite-6.16-for-rhel-9-x86_64-rpms
-  - satellite-maintenance-6.16-for-rhel-9-x86_64-rpms
+  - satellite-6.17-for-rhel-9-x86_64-rpms
+  - satellite-maintenance-6.17-for-rhel-9-x86_64-rpms
 satellite_installer_firewall_ports:
   - 8000/tcp
   - 9090/tcp
@@ -34,6 +34,7 @@ satellite_installer_scenario: satellite
 satellite_installer_package: satellite-installer
 satellite_installer_options:
   - '--tuning development'
+  - '--foreman-plugin-rh-cloud-enable-iop-advisor-engine false'
   - '--foreman-proxy-dhcp true'
   - '--foreman-proxy-dhcp-managed true'
   - '--foreman-proxy-dhcp-gateway 192.168.123.1'
