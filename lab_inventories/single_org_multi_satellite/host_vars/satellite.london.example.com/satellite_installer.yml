@@ -25,8 +25,8 @@ satellite_installer_packages:
 satellite_installer_dnf_repositories:
   - rhel-9-for-x86_64-baseos-rpms
   - rhel-9-for-x86_64-appstream-rpms
-  - satellite-6.17-for-rhel-9-x86_64-rpms
-  - satellite-maintenance-6.17-for-rhel-9-x86_64-rpms
+  - satellite-6.18-for-rhel-9-x86_64-rpms
+  - satellite-maintenance-6.18-for-rhel-9-x86_64-rpms
 satellite_installer_firewall_ports:
   - 8000/tcp
   - 9090/tcp

@@ -9,7 +9,7 @@
     # to the Satellite API.  When installing Satellite, we need to connect over ssh
     # We therefore override the ansible_connection string we set in the inventory
     ansible_connection: ssh
-  # Tecnically, not needed as all tasks use FQCN, but useful to track the collections
+  # Technically, not needed as all tasks use FQCN, but useful to track the collections
   # we are using.
   collections:
     - redhat.satellite_operations
