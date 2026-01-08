@@ -17,7 +17,7 @@
 #         product: Red Hat Enterprise Linux for x86_64
 #       - name: Red Hat Enterprise Linux 8 for x86_64 - BaseOS RPMs 8
 #         product: Red Hat Enterprise Linux for x86_64
-#       - name: Red Hat Satellite Capsule 6.12 for RHEL 8 x86_64 RPMs
+#       - name: Red Hat Satellite Capsule 6.18 for RHEL 9 x86_64 RPMs
 #         product: Red Hat Satellite Capsule
 #       - name: rhel9/rhel-bootc
 #         product: rhel-bootc

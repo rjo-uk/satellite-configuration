@@ -349,7 +349,22 @@ ansible-playbook -i inventories satellite-configuration.yml \
 -t repositories,content_views -D
 ```
 
+### Satellite 6.18 Products and Client Tools
+
+The directory [sample_products_and_content_views/satellite_618](sample_products_and_content_views/satellite_618) contains sample products and content views for Satellite 6.18 server, capsule, utils, maintenance and client tools.
+
+Sample use:
+
+```
+ansible-playbook -i inventories satellite-configuration.yml \
+-e @sample_products_and_content_views/satellite_618/satellite_products.yml \
+-e @sample_products_and_content_views/satellite_618/satellite_content_views.yml \
+-t repositories,content_views -D
+```
+
 ### Satellite 6.15 Products and Client Tools
+
+**Note: this version of Satellite is now end of life, it is listed here for reference only.**
 
 The directory [sample_products_and_content_views/satellite_615](sample_products_and_content_views/satellite_615) contains sample products and content views for Satellite 6.15 server, capsule, utils, maintenance and client tools.
 
@@ -361,6 +376,7 @@ ansible-playbook -i inventories satellite-configuration.yml \
 -e @sample_products_and_content_views/satellite_615/satellite_content_views.yml \
 -t repositories,content_views -D
 ```
+
 
 ### RHEL 6
 
@@ -416,7 +432,7 @@ ansible-playbook -i inventories satellite-configuration.yml \
 
 ### RHEL 10
 
-The directory [sample_products_and_content_views/rhel9](sample_products_and_content_views/rhel10) contains sample products and content views for RHEL 10 content.
+The directory [sample_products_and_content_views/rhel10](sample_products_and_content_views/rhel10) contains sample products and content views for RHEL 10 content.
 
 Sample use:
 
@@ -449,8 +465,9 @@ Note that it is now possible to have repositories with different RHEL releases a
 
 | Naming Convention | Examples |
 |       :---:       |  :---:   |
-| RPM-GPG-KEY- <vendor or product>  [ - < version or release > ] | RPM-GPG-KEY-EPEL-8 |
+| RPM-GPG-KEY- <vendor or product>  [ - < version or release > ] | RPM-GPG-KEY-EPEL-10 |
 | | RPM-GPG-KEY-EPEL-9 |
+| | RPM-GPG-KEY-EPEL-8 |
 | | RPM-GPG-KEY-MariaDB |
 | | RPM-GPG-KEY-SPP |
 
@@ -463,6 +480,7 @@ This above naming convention is used (with uppercase characters) to mirror filen
 | | mariadb-11-4-for-rhel-8-x86_64-rpms |
 | | epel-8-for-rhel-8-x86_64-rpms |
 | | epel-9-for-rhel-9-x86_64-rpms |
+| | epel-10-for-rhel-10-x86_64-rpms |
 | | hpe-spp-gen9-for-rhel-8-x86_64-rpms |
 | | hpe-spp-gen10-for-rhel-8-x86_64-rpms |
 | | hpe-spp-gen11-for-rhel-8-x86_64-rpms |
@@ -490,6 +508,7 @@ These names should match the environments used in your organization.
 | | cv-os-rhel-7 |
 | | cv-os-rhel-8 |
 | | cv-os-rhel-9 |
+| | cv-os-rhel-10 |
 | | cv-os-rhel-monthly |
 | | cv-app-mariadb |
 | | cv-app-spp |
