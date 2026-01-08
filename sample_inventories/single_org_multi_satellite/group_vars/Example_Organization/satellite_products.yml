@@ -49,6 +49,8 @@
 #         releasever: 9
 #       - name: Red Hat Enterprise Linux 9 for x86_64 - AppStream (RPMs)
 #         releasever: 9
+#       - name: Red Hat Enterprise Linux 9 for x86_64 - Extensions (RPMs)
+#         releasever: 9
 #       - name: Red Hat Satellite Client 6 for RHEL 9 x86_64 (RPMs)
 #   - name: Red Hat Satellite Capsule
 #     repository_sets:

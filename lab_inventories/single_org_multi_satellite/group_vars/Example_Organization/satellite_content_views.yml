@@ -63,9 +63,24 @@ satellite_content_views:
         product: Red Hat Enterprise Linux for x86_64
       - name: Red Hat Enterprise Linux 9 for x86_64 - AppStream RPMs 9
         product: Red Hat Enterprise Linux for x86_64
+      - name: Red Hat Enterprise Linux 9 for x86_64 - Extensions RPMs 9
+        product: Red Hat Enterprise Linux for x86_64
       - name: Red Hat Satellite Client 6 for RHEL 9 x86_64 RPMs
         product: Red Hat Enterprise Linux for x86_64
       - name: Red Hat Ansible Automation Platform 2.5 for RHEL 9 x86_64 RPMs
+        product: Red Hat Ansible Automation Platform
+  - name: cv-os-rhel-10
+    description: RHEL 10 repositories from Red Hat
+    repositories:
+      - name: Red Hat Enterprise Linux 10 for x86_64 - BaseOS RPMs 10
+        product: Red Hat Enterprise Linux for x86_64
+      - name: Red Hat Enterprise Linux 10 for x86_64 - AppStream RPMs 10
+        product: Red Hat Enterprise Linux for x86_64
+      - name: Red Hat Enterprise Linux 10 for x86_64 - Extensions RPMs 10
+        product: Red Hat Enterprise Linux for x86_64
+      - name: Red Hat Satellite Client 6 for RHEL 10 x86_64 RPMs
+        product: Red Hat Enterprise Linux for x86_64
+      - name: Red Hat Ansible Automation Platform 2.6 for RHEL 10 x86_64 RPMs
         product: Red Hat Ansible Automation Platform
   - name: cv-os-rhel-monthly
     description: RHEL Content with errata until last day of the previous month
@@ -82,6 +97,8 @@ satellite_content_views:
         product: Red Hat Enterprise Linux for x86_64
       - name: Red Hat Enterprise Linux 8 for x86_64 - AppStream RPMs 8.10
         product: Red Hat Enterprise Linux for x86_64
+      - name: Red Hat Enterprise Linux 9 for x86_64 - Extensions RPMs 9
+        product: Red Hat Enterprise Linux for x86_64
       - name: Red Hat Satellite Client 6 for RHEL 8 x86_64 RPMs
         product: Red Hat Enterprise Linux for x86_64
       - name: Red Hat Enterprise Linux 9 for x86_64 - BaseOS RPMs 9
@@ -94,11 +111,29 @@ satellite_content_views:
         product: Red Hat Enterprise Linux for x86_64
       - name: Red Hat Enterprise Linux 9 for x86_64 - AppStream Kickstart 9.6
         product: Red Hat Enterprise Linux for x86_64
+      - name: Red Hat Enterprise Linux 10 for x86_64 - Extensions RPMs 10
+        product: Red Hat Enterprise Linux for x86_64
       - name: Red Hat Satellite Client 6 for RHEL 9 x86_64 RPMs
+        product: Red Hat Enterprise Linux for x86_64
+      - name: Red Hat Enterprise Linux 10 for x86_64 - BaseOS RPMs 10
+        product: Red Hat Enterprise Linux for x86_64
+      - name: Red Hat Enterprise Linux 10 for x86_64 - BaseOS RPMs 10.1
+        product: Red Hat Enterprise Linux for x86_64
+      - name: Red Hat Enterprise Linux 10 for x86_64 - AppStream RPMs 10
+        product: Red Hat Enterprise Linux for x86_64
+      - name: Red Hat Enterprise Linux 10 for x86_64 - AppStream RPMs 10.1
+        product: Red Hat Enterprise Linux for x86_64
+      - name: Red Hat Enterprise Linux 10 for x86_64 - AppStream Kickstart 10.1
+        product: Red Hat Enterprise Linux for x86_64
+      - name: Red Hat Satellite Client 6 for RHEL 10 x86_64 RPMs
         product: Red Hat Enterprise Linux for x86_64
       - name: Red Hat Ansible Automation Platform 2.5 for RHEL 8 x86_64 RPMs
         product: Red Hat Ansible Automation Platform
       - name: Red Hat Ansible Automation Platform 2.5 for RHEL 9 x86_64 RPMs
+        product: Red Hat Ansible Automation Platform
+      - name: Red Hat Ansible Automation Platform 2.6 for RHEL 9 x86_64 RPMs
+        product: Red Hat Ansible Automation Platform
+      - name: Red Hat Ansible Automation Platform 2.6 for RHEL 10 x86_64 RPMs
         product: Red Hat Ansible Automation Platform
     filters:
       - name: "filt-cv-os-rhel-monthly-rpm-errata-date"
