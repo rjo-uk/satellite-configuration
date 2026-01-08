@@ -5,19 +5,32 @@
   become: true
   gather_facts: false
   vars:
-    # For satellite0configuration we typically connect from where Ansible is running
+    # For satellite configuration we typically connect from where Ansible is running
     # to the Satellite API.  When installing Satellite, we need to connect over ssh
     # We therefore override the ansible_connection string we set in the inventory
     ansible_connection: ssh
+  # Tecnically, not needed as all tasks use FQCN, but useful to track the collections
+  # we are using.
   collections:
     - redhat.satellite_operations
+    - community.general
+    - ansible.posix
+    - redhat.rhel_system_roles
 
   tasks:
-    - name: Register Satellite server to Red Hat using user with password
+    - name: Register Satellite server to Red Hat using user and password
+      ansible.builtin.include_role:
+        name: redhat.rhel_system_roles.rhc
+      vars:
+        rhc_auth:
+          login:
+            username: "{{ satellite_installer_rhsm_user }}"
+            password: "{{ satellite_installer_rhsm_password }}"
+        rhc_insights: "{{ installer_rhc_insights | default(omit) }}"
+      when:
+        - satellite_installer_rhsm_user is defined
+    - name: Set System Purpose
       community.general.redhat_subscription:
-        state: present
-        username: "{{ satellite_installer_rhsm_user }}"
-        password: "{{ satellite_installer_rhsm_password }}"
         syspurpose: "{{ satellite_installer_syspurpose | default(omit) }}"
       when:
         - satellite_installer_rhsm_user is defined
@@ -78,6 +91,8 @@
         state: latest
     # TODO
     # grubby --args="transparent_hugepage=never" --update-kernel ALL
+    # or
+    # https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/10/html/automating_system_administration_by_using_rhel_system_roles/configuring-kernel-parameters-permanently-by-using-rhel-system-roles
     - name: Run the redhat.satellite_operations roles
       ansible.builtin.include_role:
         name: "{{ __include_role['name'] }}"
@@ -92,5 +107,5 @@
         - { name: redhat.satellite_operations.cloud_connector, var: satellite_cloud_connector_url, tags: cloud_connector }
     # TODO
     # If a new kernel is installed, display a message advising a reboot is required to complete
-    # the installation
+    # the installation or required by a change to transparent_hugepage
 ...

@@ -5,6 +5,13 @@ satellite_installer_rhsm_user: !vault |
 satellite_installer_rhsm_password: !vault |
           $ANSIBLE_VAULT;1.1;AES256
           64653563643633393937366439653764316430646532376163623737346135363165316239346531q
+satellite-installer_rhc_insights:
+  autoupdate: false
+  remediation: absent
+  tags:
+    location: London
+    system_owner: rjo
+    role: satellite server
 satellite_installer_syspurpose:
   usage: "Production"
   role: "Red Hat Enterprise Server"
