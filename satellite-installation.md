@@ -34,20 +34,28 @@ By default, this will install into `~/.ansible/collections/ansible_collections/r
 
 See [lab_inventories/single_org_multi_satellite/host_vars/satellite.london.example.com/satellite_installer.yml](lab_inventories/single_org_multi_satellite/host_vars/satellite.london.example.com/satellite_installer.yml) for sample configuration.
 
-See [satellite-installation.yml](satellite-installation.yml) for details.  The playbook does the following:
+See [satellite-installation.yml](satellite-installation.yml) for details.  The playbook does the following tasks which can be selected by the tags `os_taks` and `installer_tasks`.  As per Ansible standards, if tags are not specified then all tasks will be run.
 
-* Registers the server to Red Hat
-* Sets the required repositories
-* Installs the required packages
-* Configures the firewall
-* Updates all packages
-* Runs the Satellite installer
-* Configures the Satellite Cloud Connector
+| Tag | Task |
+| :---: | :---: |
+| os_tasks | Registers the server to Red Hat |
+| os_tasks | Sets the required repositories |
+| os_tasks | Installs the required packages |
+| os_tasks | Configures the firewall |
+| os_tasks | Disables Transparent Huge Pages (THP) |
+| os_tasks | Updates all packages |
+| os_tasks | Reboots the server if package updates or kernel changes require it and `satellite_installer_allow_reboot` is set to `true` |
+| installer_tasks | Runs the Satellite installer |
+| installer_tasks | Configures the Satellite Cloud Connector |
 
-## Running the installer
 
-Sample execution, logging in using SSH as `root` to perform the installation and prompting for the password.
+Sample execution, logging in using SSH as `root` to perform ALL operating system and satellite installer tasks:
 
 ```
-ansible-playbook -i inventories satellite-installation.yml --limit satellite.london.example.com -D -u root -k 
+ansible-playbook -i inventories satellite-installation.yml --limit satellite.london.example.com -D -u root -k
+```
+
+Sample execution, logging in using SSH as `root` to perform the operating system tasks:
+```
+ansible-playbook -i inventories satellite-installation.yml --limit satellite.london.example.com -D -u root -k --tags os_tasks
 ```

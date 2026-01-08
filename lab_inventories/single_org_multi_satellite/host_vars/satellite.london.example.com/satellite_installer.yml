@@ -17,6 +17,7 @@ satellite_installer_syspurpose:
   role: "Red Hat Enterprise Server"
   service_level_agreement: "Premium"
   sync: true
+satellite_installer_allow_reboot: true
 satellite_installer_packages:
   - firewalld
   - bash-completion
