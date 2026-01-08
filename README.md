@@ -414,6 +414,19 @@ ansible-playbook -i inventories satellite-configuration.yml \
 -t repositories,content_views -D
 ```
 
+### RHEL 10
+
+The directory [sample_products_and_content_views/rhel9](sample_products_and_content_views/rhel10) contains sample products and content views for RHEL 10 content.
+
+Sample use:
+
+```
+ansible-playbook -i inventories satellite-configuration.yml \
+-e @sample_products_and_content_views/rhel10/satellite_products.yml \
+-e @sample_products_and_content_views/rhel10/satellite_content_views.yml \
+-t repositories,content_views -D
+```
+
 ## Naming Conventions
 
 Although not required, a standard naming convention for Satellite resources provides support teams with a consistent experience and allows automation and scripting tools to use pattern matching and regular expressions to audit and manipulate the environment.  The PDF guide [10 Steps to Build an SOE: How Red Hat Satellite 6 Supports Setting up a Standard Operating Environment](https://access.redhat.com/articles/1585273) suggests a possible naming convention.  This repository uses some naming conventions from that guide along with some opinionated modifications.

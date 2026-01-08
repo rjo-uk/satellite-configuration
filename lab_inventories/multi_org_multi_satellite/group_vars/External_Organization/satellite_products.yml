@@ -50,6 +50,11 @@ satellite_products:
       - name: Red Hat Enterprise Linux 9 for x86_64 - AppStream (RPMs)
         releasever: 9
       - name: Red Hat Satellite Client 6 for RHEL 9 x86_64 (RPMs)
+      - name: Red Hat Enterprise Linux 10 for x86_64 - BaseOS (RPMs)
+        releasever: 10
+      - name: Red Hat Enterprise Linux 10 for x86_64 - AppStream (RPMs)
+        releasever: 10
+      - name: Red Hat Satellite Client 6 for RHEL 10 x86_64 (RPMs)
   - name: rhel-bootc
     label: rhel-bootc
     description: RHEL BootC
