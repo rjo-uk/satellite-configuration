@@ -1,40 +1,25 @@
-# satellite-configuration
+# satellite-installation
 
 An ansible playbook and sample configuration for installing Red Hat Satellite.
 
 ## Requirements
 
-The [redhat.satellite_operations](https://console.redhat.com/ansible/automation-hub/repo/published/redhat/satellite_operations/) collection MUST be installed in order for this playbook to work.
+The following collections must be installed in order for this playbook to work:
 
-Generally speaking there are two ways to install this collection:
+- [redhat.satellite_operations](https://console.redhat.com/ansible/automation-hub/repo/published/redhat/satellite_operations/)
+- [redhat.rhel_system_roles](https://console.redhat.com/ansible/automation-hub/repo/published/redhat/rhel_system_roles/)
+- [community.general](https://galaxy.ansible.com/ui/repo/published/community/general/)
+- [ansible.posix](https://galaxy.ansible.com/ui/repo/published/ansible/posix)
 
-* Install the `ansible-collection-redhat-satellite` RPM which is available in the Satellite repository
-* Install from Ansible Automation Hub by:
-1.  Update your [ansible.cfg](ansible.cfg) file to include:
+For further details about installing these collections see: [installation-requirements.md](installation-requirements.md).
 
-```
-[galaxy]
-server_list = automation_hub
+## Prepare the invenentory
 
-[galaxy_server.automation_hub]
-url=https://console.redhat.com/api/automation-hub/content/published/
-auth_url=https://sso.redhat.com/auth/realms/redhat-external/protocol/openid-connect/token
-token=CHANGEME
-```
+We can use the same inventory structure we defined in the [main readme](README.md) to tailor the installation to one or more satellites.  The file [lab_inventories/single_org_multi_satellite/host_vars/satellite.london.example.com/satellite_installer.yml](lab_inventories/single_org_multi_satellite/host_vars/satellite.london.example.com/satellite_installer.yml) shows a sample installer configuration.
 
-2. Replace `CHANGEME` with a valid token which can be obtained at the following URL: https://console.redhat.com/ansible/automation-hub/token.  See also see [Getting started with Red Hat APIs](https://access.redhat.com/articles/3626371)
+## Running the installation
 
-3. Install the collection as the current user:
-
-`ansible-galaxy collection install redhat.satellite_operations`
-
-By default, this will install into `~/.ansible/collections/ansible_collections/redhat/satellite_operations/`
-
-## SETUP - TODO
-
-See [lab_inventories/single_org_multi_satellite/host_vars/satellite.london.example.com/satellite_installer.yml](lab_inventories/single_org_multi_satellite/host_vars/satellite.london.example.com/satellite_installer.yml) for sample configuration.
-
-See [satellite-installation.yml](satellite-installation.yml) for details.  The playbook does the following tasks which can be selected by the tags `os_taks` and `installer_tasks`.  As per Ansible standards, if tags are not specified then all tasks will be run.
+The playbook [satellite-installation.yml](satellite-installation.yml) performs the following tasks which can be selected by the tags `os_taks` and `installer_tasks`.  As per Ansible standards, if tags are not specified then all tasks will be run.
 
 | Tag | Task |
 | :---: | :---: |
@@ -48,14 +33,13 @@ See [satellite-installation.yml](satellite-installation.yml) for details.  The p
 | installer_tasks | Runs the Satellite installer |
 | installer_tasks | Configures the Satellite Cloud Connector |
 
-
-Sample execution, logging in using SSH as `root` to perform ALL operating system and satellite installer tasks:
+Sample execution, logging in using SSH as `root` to perform ALL *operating system* and *satellite installer* tasks:
 
 ```
 ansible-playbook -i inventories satellite-installation.yml --limit satellite.london.example.com -D -u root -k
 ```
 
-Sample execution, logging in using SSH as `root` to perform the operating system tasks:
+Sample execution, logging in using SSH as `root` to perform the *operating system* tasks:
 ```
 ansible-playbook -i inventories satellite-installation.yml --limit satellite.london.example.com -D -u root -k --tags os_tasks
 ```

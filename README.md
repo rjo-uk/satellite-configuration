@@ -4,31 +4,7 @@ An ansible playbook and sample configuration for Red Hat Satellite.  An addition
 
 ## Requirements
 
-The [redhat.satellite](https://console.redhat.com/ansible/automation-hub/repo/published/redhat/satellite/) collection MUST be installed in order for this playbook to work.
-
-Generally speaking there are two ways to install this collection:
-
-* Install the `ansible-collection-redhat-satellite` RPM which is available in the Satellite repository
-* Install from Ansible Automation Hub by:
-1.  Update your [ansible.cfg](ansible.cfg) file to include:
-
-```
-[galaxy]
-server_list = automation_hub
-
-[galaxy_server.automation_hub]
-url=https://console.redhat.com/api/automation-hub/content/published/
-auth_url=https://sso.redhat.com/auth/realms/redhat-external/protocol/openid-connect/token
-token=CHANGEME
-```
-
-2. Replace `CHANGEME` with a valid token which can be obtained at the following URL: https://console.redhat.com/ansible/automation-hub/token.  See also see [Getting started with Red Hat APIs](https://access.redhat.com/articles/3626371)
-
-3. Install the collection as the current user:
-
-`ansible-galaxy collection install redhat.satellite`
-
-By default, this will install into `~/.ansible/collections/ansible_collections/redhat/satellite/`
+The [redhat.satellite](https://console.redhat.com/ansible/automation-hub/repo/published/redhat/satellite/) collection MUST be installed in order for this playbook to work.  For details about installing this collection see: [requirements.md](requirements.md).
 
 ## Getting Started
 
