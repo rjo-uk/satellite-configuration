@@ -10,7 +10,7 @@ Generally speaking there are two ways to install this, both of which are documen
 
 * Installation via Ansible Automation Hub
 
-# Prefered method - installing redhat.satellite using and Ansible Automation Hub in requirements.yml
+# Preferred method - installing redhat.satellite using Ansible Automation Hub and requirements.yml
 
 The easiest method for installing the required collection is to specify Ansible Automation Hub in [ansible.cfg](ansible.cfg) and then use the [requirements.yml](requirements.yml) file:
 

@@ -13,7 +13,7 @@ The following collections must be installed in order for this playbook to work:
 
 For further details about installing these collections see: [installation-requirements.md](installation-requirements.md).
 
-## Prepare the invenentory
+## Prepare the inventory
 
 We can use the same inventory structure we defined in the [main readme](README.md) to tailor the installation to one or more satellites.  The file [lab_inventories/single_org_multi_satellite/host_vars/satellite.london.example.com/satellite_installer.yml](lab_inventories/single_org_multi_satellite/host_vars/satellite.london.example.com/satellite_installer.yml) shows a sample installer configuration.
 

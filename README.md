@@ -24,7 +24,7 @@ Update the following fields in the `inventories/inventory.yml` file:
 
 > Example_Organization:
 
-Replace with your company, department or organization name.  See https://docs.redhat.com/en/documentation/red_hat_satellite/6.15/html/administering_red_hat_satellite/managing_organizations_admin for details.  Ideally, this field will not have special characters and `spaces` should be replaced with underscores `_`.
+Replace with your company, department or organization name.  See https://docs.redhat.com/en/documentation/red_hat_satellite/6.18/html/administering_red_hat_satellite/managing_organizations_admin for details.  Ideally, this field will not have special characters and `spaces` should be replaced with underscores `_`.
 
 > production.satellite.example.com
 
@@ -32,7 +32,7 @@ The FQDN of the satellite server.
 
 >  satellite_validate_certs: false
 
-If the server from where you will run the playbook can securely connect to the Satellite server over https, this can be set to `true`.  If the server has a self-signed certificate, you will likely want this to be to `false`.
+If the server from where you will run the playbook can securely connect to the Satellite server over https, this can be set to `true`.  If the server has a self-signed certificate, you will likely want this to be `false`.
 
 > satellite_username: admin
 
@@ -310,7 +310,7 @@ When the playbook is first run with all tags (the default) on a newly installed 
 
 ##  Sample products and content views
 
-The [sample_products_and_content_views](sample_products_and_content_views) directory lists a number of Satellite production and content view configurations which can be used as references to include in your inventories on configure Satellite as one-off tasks.  The configurations are typically in two files, one for products and one for content views so you can choose if you want use one of them rater than both.
+The [sample_products_and_content_views](sample_products_and_content_views) directory lists a number of Satellite products and content view configurations which can be used as references to include in your inventories or configure Satellite as one-off tasks.  The configurations are typically in two files, one for products and one for content views so you can choose if you want to use either or both of them.
 
 ###  RHEL In-Place Upgrades
 
