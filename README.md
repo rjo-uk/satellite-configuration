@@ -325,6 +325,19 @@ ansible-playbook -i inventories satellite-configuration.yml \
 -t repositories,content_views -D
 ```
 
+### Satellite 6.19 Products and Client Tools
+
+The directory [sample_products_and_content_views/satellite_619](sample_products_and_content_views/satellite_619) contains sample products and content views for Satellite 6.19 server, capsule, utils, maintenance and client tools.
+
+Sample use:
+
+```
+ansible-playbook -i inventories satellite-configuration.yml \
+-e @sample_products_and_content_views/satellite_619/satellite_products.yml \
+-e @sample_products_and_content_views/satellite_619/satellite_content_views.yml \
+-t repositories,content_views -D
+```
+
 ### Satellite 6.18 Products and Client Tools
 
 The directory [sample_products_and_content_views/satellite_618](sample_products_and_content_views/satellite_618) contains sample products and content views for Satellite 6.18 server, capsule, utils, maintenance and client tools.
