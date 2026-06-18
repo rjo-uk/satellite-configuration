@@ -42,7 +42,9 @@ satellite_installer_scenario: satellite
 satellite_installer_package: satellite-installer
 satellite_installer_options:
   - '--tuning development'
-  - '--foreman-plugin-rh-cloud-enable-iop-advisor-engine false'
+  # See https://access.redhat.com/solutions/7136120 for enabling/disabling IOP
+  # Use --no-enable-iop here as it has never been enabled
+  - '--no-enable-iop'
   - '--foreman-proxy-dhcp true'
   - '--foreman-proxy-dhcp-managed true'
   - '--foreman-proxy-dhcp-gateway 192.168.123.1'
