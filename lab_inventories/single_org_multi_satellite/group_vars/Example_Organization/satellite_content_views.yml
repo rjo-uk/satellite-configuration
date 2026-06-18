@@ -13,7 +13,7 @@ satellite_content_views:
   #       product: Red Hat Enterprise Linux for x86_64
   #     - name: Red Hat Enterprise Linux 8 for x86_64 - BaseOS RPMs 8
   #       product: Red Hat Enterprise Linux for x86_64
-  #     - name: Red Hat Satellite Capsule 6.17 for RHEL 9 x86_64 RPMs
+  #     - name: Red Hat Satellite Capsule 6.19 for RHEL 9 x86_64 RPMs
   #       product: Red Hat Satellite Capsule
   #     - name: rhel9/rhel-bootc
   #       product: rhel-bootc
@@ -117,13 +117,13 @@ satellite_content_views:
         product: Red Hat Enterprise Linux for x86_64
       - name: Red Hat Enterprise Linux 10 for x86_64 - BaseOS RPMs 10
         product: Red Hat Enterprise Linux for x86_64
-      - name: Red Hat Enterprise Linux 10 for x86_64 - BaseOS RPMs 10.1
+      - name: Red Hat Enterprise Linux 10 for x86_64 - BaseOS RPMs 10.2
         product: Red Hat Enterprise Linux for x86_64
       - name: Red Hat Enterprise Linux 10 for x86_64 - AppStream RPMs 10
         product: Red Hat Enterprise Linux for x86_64
-      - name: Red Hat Enterprise Linux 10 for x86_64 - AppStream RPMs 10.1
+      - name: Red Hat Enterprise Linux 10 for x86_64 - AppStream RPMs 10.2
         product: Red Hat Enterprise Linux for x86_64
-      - name: Red Hat Enterprise Linux 10 for x86_64 - AppStream Kickstart 10.1
+      - name: Red Hat Enterprise Linux 10 for x86_64 - AppStream Kickstart 10.2
         product: Red Hat Enterprise Linux for x86_64
       - name: Red Hat Satellite Client 6 for RHEL 10 x86_64 RPMs
         product: Red Hat Enterprise Linux for x86_64

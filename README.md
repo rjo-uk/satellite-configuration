@@ -24,7 +24,7 @@ Update the following fields in the `inventories/inventory.yml` file:
 
 > Example_Organization:
 
-Replace with your company, department or organization name.  See https://docs.redhat.com/en/documentation/red_hat_satellite/6.18/html/administering_red_hat_satellite/managing_organizations_admin for details.  Ideally, this field will not have special characters and `spaces` should be replaced with underscores `_`.
+Replace with your company, department or organization name.  See https://docs.redhat.com/en/documentation/red_hat_satellite/6.19/html/administering_red_hat_satellite/managing_organizations_admin for details.  Ideally, this field will not have special characters and `spaces` should be replaced with underscores `_`.
 
 > production.satellite.example.com
 
@@ -339,6 +339,8 @@ ansible-playbook -i inventories satellite-configuration.yml \
 ```
 
 ### Satellite 6.18 Products and Client Tools
+
+**Note: this version of Satellite is now end of life, it is listed here for reference only.**
 
 The directory [sample_products_and_content_views/satellite_618](sample_products_and_content_views/satellite_618) contains sample products and content views for Satellite 6.18 server, capsule, utils, maintenance and client tools.
 

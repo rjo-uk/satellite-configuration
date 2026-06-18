@@ -38,4 +38,4 @@ If the above is not possible, you can install the collection from RPM.
 
 # Installing the redhat collection from RPM
 
-Install the `ansible-collection-redhat-satellite` RPM on the server where you are running Ansible.  The RPM is available in the Satellite repository, for example on Satellite 6.18 it's in the `satellite-6.18-for-rhel-9-x86_64-rpms` repo.
+Install the `ansible-collection-redhat-satellite` RPM on the server where you are running Ansible.  The RPM is available in the Satellite repository, for example on Satellite 6.19 it's in the `satellite-6.19-for-rhel-9-x86_64-rpms` repo.
