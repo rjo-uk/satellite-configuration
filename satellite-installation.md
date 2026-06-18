@@ -19,7 +19,7 @@ We can use the same inventory structure we defined in the [main readme](README.m
 
 ## Running the installation
 
-The playbook [satellite-installation.yml](satellite-installation.yml) performs the following tasks which can be selected by the tags `os_taks` and `installer_tasks`.  As per Ansible standards, if tags are not specified then all tasks will be run.
+The playbook [satellite-installation.yml](satellite-installation.yml) performs the following tasks which can be selected by the tags `os_tasks` and `installer_tasks`.  As per Ansible standards, if tags are not specified then all tasks will be run.
 
 | Tag | Task |
 | :---: | :---: |

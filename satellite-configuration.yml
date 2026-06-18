@@ -34,7 +34,7 @@
         - { name: redhat.satellite.provisioning_templates, var: satellite_provisioning_templates, tags: provisioning_templates }
         - { name: redhat.satellite.operatingsystems, var: satellite_operatingsystems, tags: operatingsystems }
         - { name: redhat.satellite.auth_sources_ldap, var: satellite_auth_sources_ldap, tags: auth_sources_ldap }
-        - { name: redhat.satellite.compute_resources, var: satellite_compute_resources, tags: compute_resourcee }
+        - { name: redhat.satellite.compute_resources, var: satellite_compute_resources, tags: compute_resources }
         - { name: redhat.satellite.compute_profiles, var: satellite_compute_profiles, tags: compute_profiles }
         - { name: redhat.satellite.content_view_version_cleanup, var: satellite_content_view_version_cleanup_keep, tags: content_view_version_cleanup }
         - { name: redhat.satellite.convert2rhel, var: satellite_convert2rhel_manage_subscription, tags: convert2rhel }
