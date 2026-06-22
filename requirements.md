@@ -2,7 +2,7 @@
 
 The following collection must be installed in order for the satellite configuration playbook to run.
 
-- [redhat.satellite](https://console.redhat.com/ansible/automation-hub/repo/published/redhat/satellite/)
+- [redhat.satellite](https://console.redhat.com/ansible/automation-hub/collections/published/redhat/satellite/)
 
 Generally speaking there are two ways to install this, both of which are documented below.
 

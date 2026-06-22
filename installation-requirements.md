@@ -2,8 +2,8 @@
 
 The following collections must be installed in order for the satellite installer playbook to run.
 
-- [redhat.satellite_operations](https://console.redhat.com/ansible/automation-hub/repo/published/redhat/satellite_operations/)
-- [redhat.rhel_system_roles](https://console.redhat.com/ansible/automation-hub/repo/published/redhat/rhel_system_roles/)
+- [redhat.satellite_operations](https://console.redhat.com/ansible/automation-hub/collections/published/redhat/satellite_operations/)
+- [redhat.rhel_system_roles](https://console.redhat.com/ansible/automation-hub/collections/published/redhat/rhel_system_roles/)
 - [community.general](https://galaxy.ansible.com/ui/repo/published/community/general/)
 - [ansible.posix](https://galaxy.ansible.com/ui/repo/published/ansible/posix)
 
@@ -17,7 +17,7 @@ The redhat.satellite_operations collection is available from Ansible Automation 
 
 The community.general and ansible.posix collections are available from Ansible Galaxy.
 
-# Prefered method - installing redhat.satellite_operations, redhat.rhel_system_roles, community.general and ansible.posix collections using requirements-install.yml
+# Preferred method - installing redhat.satellite_operations, redhat.rhel_system_roles, community.general and ansible.posix collections using requirements-install.yml
 
 The easiest method for installing the required collections is to specify both Ansible Automation Hub and Ansible Galaxy in the same [ansible.cfg](ansible.cfg)  configuration file and install all the collections in one go using the [requirements-install.yml](requirements-install.yml) file:
 

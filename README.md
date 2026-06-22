@@ -4,7 +4,7 @@ An ansible playbook and sample configuration for Red Hat Satellite.  An addition
 
 ## Requirements
 
-The [redhat.satellite](https://console.redhat.com/ansible/automation-hub/repo/published/redhat/satellite/) collection MUST be installed in order for this playbook to work.  For details about installing this collection see: [requirements.md](requirements.md).
+The [redhat.satellite](https://console.redhat.com/ansible/automation-hub/collections/published/redhat/satellite/) collection MUST be installed in order for this playbook to work.  For details about installing this collection see: [requirements.md](requirements.md).
 
 ## Getting Started
 

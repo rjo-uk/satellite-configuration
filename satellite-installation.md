@@ -6,8 +6,8 @@ An ansible playbook and sample configuration for installing Red Hat Satellite.
 
 The following collections must be installed in order for this playbook to work:
 
-- [redhat.satellite_operations](https://console.redhat.com/ansible/automation-hub/repo/published/redhat/satellite_operations/)
-- [redhat.rhel_system_roles](https://console.redhat.com/ansible/automation-hub/repo/published/redhat/rhel_system_roles/)
+- [redhat.satellite_operations](https://console.redhat.com/ansible/automation-hub/collections/published/redhat/satellite_operations/)
+- [redhat.rhel_system_roles](https://console.redhat.com/ansible/automation-hub/collections/published/redhat/rhel_system_roles/)
 - [community.general](https://galaxy.ansible.com/ui/repo/published/community/general/)
 - [ansible.posix](https://galaxy.ansible.com/ui/repo/published/ansible/posix)
 
